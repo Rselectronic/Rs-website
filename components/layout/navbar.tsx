@@ -105,7 +105,7 @@ export function Navbar() {
           {/* CTA + Mobile */}
           <div className="flex items-center gap-3">
             <Link
-              href="/contact"
+              href="/quote"
               className="inline-flex items-center bg-[var(--primary)] text-white font-semibold rounded-xl hover:bg-[var(--blue-700)] transition-all duration-200 shadow-md shadow-blue-500/25 px-3.5 py-2 text-xs md:px-5 md:py-2.5 md:text-sm"
             >
               <span className="md:hidden">Get a Quote</span>
@@ -143,7 +143,7 @@ export function Navbar() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href="/quote"
                 className="mt-4 w-full text-center bg-[var(--primary)] text-white font-semibold px-8 py-3.5 rounded-xl shadow-md shadow-blue-500/25"
               >
                 Get a Quote in 24-Hours Now!

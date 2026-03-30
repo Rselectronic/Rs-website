@@ -22,7 +22,7 @@ export function AboutCta() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild>
-            <Link href="/contact">
+            <Link href="/quote">
               Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

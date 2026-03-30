@@ -110,7 +110,7 @@ export default async function BlogPostPage({
             Send us your Gerber files and BOM. We'll have a same-day quote back to you.
           </p>
           <Link
-            href="/contact"
+            href="/quote"
             className="inline-flex items-center bg-[var(--primary)] text-white font-semibold px-6 py-3 rounded-xl hover:bg-[var(--blue-700)] transition-colors"
           >
             Request a Quote <ArrowRight className="ml-2 h-4 w-4" />

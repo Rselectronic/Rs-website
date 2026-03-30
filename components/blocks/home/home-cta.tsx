@@ -22,7 +22,7 @@ export function HomeCta() {
 
         <div className="flex flex-wrap justify-center gap-4 mb-10">
           <Button asChild className="bg-[var(--primary)] text-white border-[var(--primary)] hover:bg-white hover:text-[var(--blue-900)] rounded-xl px-8 py-3">
-            <Link href="/contact">
+            <Link href="/quote">
               Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

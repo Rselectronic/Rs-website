@@ -49,7 +49,7 @@ export function Hero() {
               {/* CTAs below headline */}
               <div className="flex flex-wrap items-center gap-4 mt-8">
                 <Link
-                  href="/contact"
+                  href="/quote"
                   className="inline-flex items-center bg-[var(--primary)] text-white font-mono text-xs uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-[var(--primary)]/90 border-2 border-[var(--primary)] transition-colors duration-200"
                 >
                   Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
