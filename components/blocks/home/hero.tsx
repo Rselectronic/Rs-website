@@ -12,15 +12,15 @@ export function Hero() {
     offset: ['start end', 'end start'],
     target: container,
   });
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
 
   return (
     <>
       {/* Parallax image hero */}
-      <div className="mt-3 mx-3 md:mx-5 overflow-hidden rounded-3xl bg-white">
+      <div className="mt-3 mx-3 md:mx-5 overflow-hidden rounded-3xl">
         <div
           ref={container}
-          className="relative flex h-[90vh] min-h-[640px] items-end overflow-hidden"
+          className="relative flex h-[85vh] min-h-[600px] items-end overflow-hidden"
         >
           {/* Text overlay with mix-blend */}
           <div className="relative z-10 flex h-full w-full flex-col justify-between p-8 md:p-12 lg:p-16 text-white mix-blend-difference">
@@ -64,8 +64,8 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Parallax background image */}
-          <div className="absolute inset-0 w-full h-full">
+          {/* Parallax background image — oversized so it has room to travel */}
+          <div className="absolute inset-x-0 -top-[15%] -bottom-[15%]">
             <motion.div className="relative h-full w-full" style={{ y }}>
               <Image
                 alt="Close-up of a green printed circuit board with electronic components and copper traces"
