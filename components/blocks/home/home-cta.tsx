@@ -13,7 +13,7 @@ export function HomeCta() {
         }}
       />
       <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32 lg:py-40 relative text-center">
-        <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-6">
           Ready to get <span className="italic font-normal">started?</span>
         </h2>
         <p className="text-lg text-white/60 mb-12 max-w-xl mx-auto leading-relaxed">

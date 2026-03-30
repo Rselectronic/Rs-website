@@ -10,7 +10,7 @@ export function FaqHero() {
             FAQ
           </span>
         </div>
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-none mb-6 text-[var(--blue-900)]">
+        <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none mb-6 text-[var(--blue-900)]">
           Answers to
           <br />
           <span className="italic font-normal text-[var(--primary)]">common questions</span>

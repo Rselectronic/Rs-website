@@ -21,7 +21,6 @@ export function Hero() {
         <div
           ref={container}
           className="relative flex h-[85vh] min-h-[600px] items-end overflow-hidden"
-          style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
         >
           {/* Text overlay with mix-blend */}
           <div className="relative z-10 flex h-full w-full flex-col justify-between p-8 md:p-12 lg:p-16 text-white mix-blend-difference">
@@ -41,7 +40,7 @@ export function Hero() {
 
             {/* Bottom headline */}
             <div>
-              <h1 className="font-display text-[10vw] md:text-[7vw] lg:text-[5.5vw] font-bold leading-[0.95] tracking-tighter uppercase">
+              <h1 className="font-display text-4xl sm:text-5xl md:text-[7vw] lg:text-[5.5vw] font-bold leading-[0.95] tracking-tighter uppercase">
                 Trusted Partner in
                 <br />
                 <span className="italic font-normal">Exceptional</span> PCB Assembly
@@ -66,7 +65,7 @@ export function Hero() {
           </div>
 
           {/* Parallax background image */}
-          <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
+          <div className="absolute inset-0 w-full h-full">
             <motion.div className="relative h-full w-full" style={{ y }}>
               <Image
                 alt="Close-up of a green printed circuit board with electronic components and copper traces"

@@ -27,8 +27,8 @@ export function LeadTimes() {
         </p>
 
         <div className="rounded-2xl border border-[#E2E8F0] overflow-hidden">
-          {/* Header */}
-          <div className="grid grid-cols-3 bg-[#2563EB] text-white px-6 py-4">
+          {/* Header — desktop only */}
+          <div className="hidden md:grid grid-cols-3 bg-[#2563EB] text-white px-6 py-4">
             <span className="font-mono text-[10px] uppercase tracking-widest">Service Type</span>
             <span className="font-mono text-[10px] uppercase tracking-widest">Lead Time</span>
             <span className="font-mono text-[10px] uppercase tracking-widest">Notes</span>
@@ -41,11 +41,17 @@ export function LeadTimes() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.08 }}
-              className="grid grid-cols-3 px-6 py-5 border-t border-[#E2E8F0] hover:bg-[#EFF6FF] transition-colors duration-200"
+              className="grid grid-cols-1 md:grid-cols-3 px-6 py-5 gap-1 md:gap-0 border-t border-[#E2E8F0] hover:bg-[#EFF6FF] transition-colors duration-200"
             >
               <span className="text-sm font-medium text-[#0F172A]">{lt.type}</span>
-              <span className="font-mono text-sm font-bold text-[#2563EB]">{lt.time}</span>
-              <span className="text-sm text-[#64748B]">{lt.notes}</span>
+              <span className="font-mono text-sm font-bold text-[#2563EB]">
+                <span className="font-mono text-[9px] uppercase tracking-widest text-[#64748B] font-normal mr-1 md:hidden">Lead time:</span>
+                {lt.time}
+              </span>
+              <span className="text-sm text-[#64748B]">
+                <span className="font-mono text-[9px] uppercase tracking-widest mr-1 md:hidden">Notes:</span>
+                {lt.notes}
+              </span>
             </motion.div>
           ))}
         </div>

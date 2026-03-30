@@ -26,11 +26,11 @@ export function ServicesHero() {
           <div className="absolute inset-0 bg-black/50" />
         </motion.div>
 
-        <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 mix-blend-difference">
+        <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20 mix-blend-difference">
           <span className="font-mono text-[10px] uppercase tracking-widest text-white/70 mb-6">
             Services
           </span>
-          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-none">
+          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tighter text-white leading-none">
             Full turnkey PCB
             <br />
             <span className="italic font-normal">manufacturing</span> — or just
