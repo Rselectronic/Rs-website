@@ -42,7 +42,7 @@ export function isAdminLoggedIn() {
       adminLogout()
       return false
     }
-    return true
+    return true;
   } catch {
     return false;
   }
