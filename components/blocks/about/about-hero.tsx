@@ -35,8 +35,8 @@ export function AboutHero() {
           <div className="absolute inset-0 bg-black/50" />
         </motion.div>
 
-        {/* Overlay text — mix-blend-difference */}
-        <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20 mix-blend-difference">
+        {/* Overlay text */}
+        <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20">
           <span className="font-mono text-[10px] uppercase tracking-widest text-white/70 mb-6">
             About Us
           </span>
