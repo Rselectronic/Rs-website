@@ -17,7 +17,7 @@ export function Hero() {
   return (
     <>
       {/* Parallax image hero */}
-      <div className="mt-3 mx-3 md:mx-5 overflow-hidden rounded-3xl">
+      <div className="mt-3 mx-3 md:mx-5 overflow-hidden rounded-3xl relative">
         <div
           ref={container}
           className="relative flex h-[85vh] min-h-[600px] items-end overflow-hidden"
