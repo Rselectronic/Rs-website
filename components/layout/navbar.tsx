@@ -106,9 +106,10 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden md:inline-flex items-center bg-[var(--primary)] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[var(--blue-700)] transition-all duration-200 shadow-md shadow-blue-500/25"
+              className="inline-flex items-center bg-[var(--primary)] text-white font-semibold rounded-xl hover:bg-[var(--blue-700)] transition-all duration-200 shadow-md shadow-blue-500/25 px-3.5 py-2 text-xs md:px-5 md:py-2.5 md:text-sm"
             >
-              Get a Quote in 24-Hours Now!
+              <span className="md:hidden">Get a Quote</span>
+              <span className="hidden md:inline">Get a Quote in 24-Hours Now!</span>
             </Link>
 
             <button

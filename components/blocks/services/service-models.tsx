@@ -16,13 +16,13 @@ export function ServiceModels() {
           How would you like to <span className="italic font-normal">work with us?</span>
         </h2>
 
-        <Tabs defaultValue="turnkey" className="w-full">
-          <TabsList className="w-full flex bg-[#EFF6FF] border border-[#E2E8F0] rounded-2xl p-1.5 mb-10 h-auto">
+        <Tabs defaultValue="turnkey" className="w-full flex-col">
+          <TabsList className="w-full flex flex-col sm:flex-row bg-[#EFF6FF] border border-[#E2E8F0] rounded-2xl p-1.5 mb-10 h-auto gap-1 sm:gap-0">
             {['turnkey', 'assembly', 'consignment'].map((val) => (
               <TabsTrigger
                 key={val}
                 value={val}
-                className="flex-1 font-mono text-xs uppercase tracking-widest py-3.5 rounded-xl text-[#64748B] transition-all duration-200 data-[state=active]:bg-[#2563EB] data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:shadow-blue-500/20 hover:text-[#0F172A]"
+                className="flex-1 font-mono text-xs uppercase tracking-wide py-3.5 rounded-xl text-[#64748B] transition-all duration-200 data-[state=active]:bg-[#2563EB] data-[state=active]:text-white data-[state=active]:shadow-md data-[state=active]:shadow-blue-500/20 hover:text-[#0F172A] whitespace-nowrap"
               >
                 {val === 'turnkey' ? 'Turnkey' : val === 'assembly' ? 'Assembly Only' : 'Consignment'}
               </TabsTrigger>
