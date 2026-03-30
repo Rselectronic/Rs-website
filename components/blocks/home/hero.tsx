@@ -16,14 +16,14 @@ export function Hero() {
 
   return (
     <>
-      {/* Parallax image hero — pulls up behind the glassy navbar */}
-      <div className="-mt-20 mx-3 md:mx-5 overflow-hidden rounded-3xl bg-white">
+      {/* Parallax image hero */}
+      <div className="mt-3 mx-3 md:mx-5 overflow-hidden rounded-3xl bg-white">
         <div
           ref={container}
           className="relative flex h-[90vh] min-h-[640px] items-end overflow-hidden"
         >
           {/* Text overlay with mix-blend */}
-          <div className="relative z-10 flex h-full w-full flex-col justify-between pt-28 md:pt-32 lg:pt-36 pb-8 md:pb-12 lg:pb-16 px-8 md:px-12 lg:px-16 text-white mix-blend-difference">
+          <div className="relative z-10 flex h-full w-full flex-col justify-between p-8 md:p-12 lg:p-16 text-white mix-blend-difference">
             {/* Top row */}
             <div className="flex items-start justify-between">
               <div className="flex items-center gap-3">
