@@ -23,34 +23,33 @@ const props = [
 
 export function ValueProps() {
   return (
-    <section className="py-24 px-6">
-      <div className="mx-auto max-w-7xl">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-[--accent-blue] mb-3">
-          WHY RS PCB ASSEMBLY
-        </p>
-        <h2 className="font-display text-3xl sm:text-4xl font-bold text-[--text-primary] mb-12">
-          Built for engineers who need it done right
+    <section className="py-24 md:py-32 lg:py-40 px-6 md:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex items-center gap-4 mb-4">
+          <div className="w-12 h-[2px] bg-[var(--foreground)]" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
+            Why RS PCB Assembly
+          </span>
+        </div>
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-16">
+          Built for engineers who<br />need it done <span className="italic font-normal">right</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-[var(--foreground)]">
           {props.map((prop, i) => (
             <motion.div
               key={prop.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group rounded-2xl border border-[--border-color] bg-[--bg-surface] p-6 hover:border-[--border-accent] transition-all duration-300"
+              transition={{ delay: i * 0.1, duration: 0.4 }}
+              className="group p-8 md:p-10 transition-colors duration-100 hover:bg-[var(--foreground)] hover:text-[var(--background)] border-b-2 md:border-b-0 md:border-r-2 border-[var(--foreground)] last:border-b-0 last:border-r-0"
             >
-              <div className="w-12 h-12 rounded-xl bg-[--accent-dim] flex items-center justify-center mb-5">
-                <prop.icon className="h-6 w-6 text-[--accent-blue]" />
+              <div className="w-12 h-12 border-2 border-current flex items-center justify-center mb-6">
+                <prop.icon size={20} strokeWidth={1.5} />
               </div>
-              <h3 className="font-display text-xl font-bold text-[--text-primary] mb-3">
-                {prop.title}
-              </h3>
-              <p className="text-sm text-[--text-secondary] leading-relaxed">
-                {prop.body}
-              </p>
+              <h3 className="font-display text-xl font-bold mb-3">{prop.title}</h3>
+              <p className="text-sm leading-relaxed opacity-70">{prop.body}</p>
             </motion.div>
           ))}
         </div>

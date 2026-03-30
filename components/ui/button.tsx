@@ -4,20 +4,20 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-xl text-sm font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[--accent-blue] disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
+  "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium uppercase tracking-widest transition-colors duration-100 focus-visible:outline focus-visible:outline-3 focus-visible:outline-[var(--foreground)] focus-visible:outline-offset-3 disabled:pointer-events-none disabled:opacity-50 cursor-pointer",
   {
     variants: {
       variant: {
-        default: "bg-[--accent-blue] text-[--bg-base] hover:bg-[--accent-green] font-semibold",
-        outline: "border border-[--border-color] text-[--text-primary] hover:border-[--accent-blue] bg-transparent",
-        ghost: "text-[--text-primary] hover:bg-[--bg-elevated]",
-        destructive: "bg-red-600 text-white hover:bg-red-700",
+        default: "bg-[var(--foreground)] text-[var(--background)] border-2 border-[var(--foreground)] hover:bg-[var(--background)] hover:text-[var(--foreground)]",
+        outline: "bg-transparent text-[var(--foreground)] border-2 border-[var(--foreground)] hover:bg-[var(--foreground)] hover:text-[var(--background)]",
+        ghost: "bg-transparent text-[var(--foreground)] border-none hover:underline underline-offset-4",
+        destructive: "bg-[var(--foreground)] text-[var(--background)] border-2 border-[var(--foreground)]",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 px-3 text-xs",
-        lg: "h-12 px-8 text-base",
-        icon: "h-10 w-10",
+        default: "h-12 px-8 py-3",
+        sm: "h-10 px-6 py-2 text-xs",
+        lg: "h-14 px-10 py-4",
+        icon: "h-12 w-12",
       },
     },
     defaultVariants: { variant: "default", size: "default" },

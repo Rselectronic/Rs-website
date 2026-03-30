@@ -11,34 +11,39 @@ const stats = [
 
 export function AboutHero() {
   return (
-    <section className="py-24 px-6">
-      <div className="mx-auto max-w-4xl text-center">
-        <p className="font-mono text-xs uppercase tracking-[0.2em] text-[--accent-blue] mb-3">
-          ABOUT US
-        </p>
-        <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-[--text-primary] mb-6 leading-tight">
-          35 years of experience. One standard: excellence.
+    <section className="py-24 md:py-32 lg:py-40 px-6 md:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex items-center gap-4 mb-8">
+          <div className="w-12 h-[2px] bg-[var(--foreground)]" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
+            About Us
+          </span>
+        </div>
+
+        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter mb-6 leading-none">
+          35 years of experience.
+          <br />
+          <span className="italic font-normal">One standard: excellence.</span>
         </h1>
-        <p className="text-lg text-[--text-secondary] leading-relaxed max-w-2xl mx-auto mb-16">
+
+        <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-2xl mb-16">
           R. S. Électronique Inc. has been serving the Montreal manufacturing
           community since 2003 — building a reputation on high quality, unwavering
           integrity, and consistent on-time delivery.
         </p>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-8 border-y border-[--border-color]">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 border-2 border-[var(--foreground)]">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08, duration: 0.4 }}
-              className="text-center"
+              transition={{ delay: i * 0.08 }}
+              className="p-6 md:p-8 border-b-2 sm:border-b-0 sm:border-r-2 border-[var(--foreground)] last:border-b-0 last:border-r-0"
             >
-              <p className="font-mono text-2xl sm:text-3xl font-bold text-[--accent-blue]">
-                {stat.value}
-              </p>
-              <p className="font-mono text-xs text-[--text-secondary] uppercase tracking-wider mt-1">
+              <p className="font-display text-3xl font-bold tracking-tight">{stat.value}</p>
+              <p className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mt-1">
                 {stat.label}
               </p>
             </motion.div>

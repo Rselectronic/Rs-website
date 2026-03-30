@@ -1,22 +1,30 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export function AboutCta() {
   return (
-    <section className="py-24 px-6">
-      <div className="mx-auto max-w-3xl rounded-2xl border border-[--border-color] bg-[--bg-surface] p-10 sm:p-14 text-center">
-        <h2 className="font-display text-3xl sm:text-4xl font-bold text-[--text-primary] mb-4">
-          See what we can build for you
+    <section className="bg-[var(--foreground)] text-[var(--background)] relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(circle at top center, #ffffff, transparent 70%)',
+          opacity: 0.05,
+        }}
+      />
+      <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32 relative text-center">
+        <h2 className="font-display text-5xl md:text-6xl font-bold tracking-tighter mb-6">
+          See what we can <span className="italic font-normal">build for you</span>
         </h2>
-        <p className="text-[--text-secondary] leading-relaxed mb-8 max-w-xl mx-auto">
+        <p className="text-lg opacity-60 leading-relaxed max-w-xl mx-auto mb-12">
           Whether you&apos;re an engineer with a prototype or a manufacturer needing
           reliable mid-volume production, RS PCB Assembly is equipped to deliver.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Button asChild size="lg">
-            <Link href="/contact">Request a Quote</Link>
+          <Button asChild className="bg-[var(--background)] text-[var(--foreground)] border-[var(--background)] hover:bg-transparent hover:text-[var(--background)]">
+            <Link href="/contact">Request a Quote <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" className="border-[var(--background)] text-[var(--background)] hover:bg-[var(--background)] hover:text-[var(--foreground)]">
             <Link href="/services">Our Services</Link>
           </Button>
         </div>
