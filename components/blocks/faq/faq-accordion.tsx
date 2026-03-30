@@ -1,0 +1,106 @@
+'use client';
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+
+const categories = [
+  {
+    title: 'Working With RS',
+    items: [
+      {
+        q: 'What types of orders do you usually build?',
+        a: "RS's core service is managing clients that have many different PCBA types at low to mid volumes. With an average of 200–400 distinct products built each year, RS has vast experience in tracking component databases, production schedules, and pricing. Our in-house team procures all components on the BOM, orders PCBs from several fab houses, and completes the assembly in house.",
+      },
+      {
+        q: 'What is the fastest lead time you can provide?',
+        a: 'The fastest lead time we can provide is a full turnkey board — component procurement, PCB fabrication, and assembly — completed in 3–5 business days. For urgent inquiries, call +1 (438) 833-8477 or email sales@rspcbassembly.com.',
+      },
+      {
+        q: 'Is customer satisfaction guaranteed?',
+        a: "Absolutely. R. S. Électronique Inc. will always make sure its customers are satisfied. If anything is not right, we contact the client immediately and do whatever it takes to make it right. Customer relationships are the foundation of how we've grown over 20+ years.",
+      },
+      {
+        q: 'Do you serve customers outside of Montreal?',
+        a: 'Yes. While we are based in Saint-Laurent, Montreal, we serve clients across Quebec, across Canada, and internationally. Our turnkey model means we can ship completed boards anywhere.',
+      },
+    ],
+  },
+  {
+    title: 'Quality & Standards',
+    items: [
+      {
+        q: 'What quality standard do you build to?',
+        a: 'Our standard build is IPC Class 2 for all assemblies. IPC Class 3 can be met upon customer request. Strict measures are in place including IPC training for assembly staff, strict quality controls, anti-static storage and packaging, and continuous process improvement programs.',
+      },
+      {
+        q: 'Are you ISO certified?',
+        a: 'RS is currently working toward ISO 9001 certification. In the meantime, our processes are structured around IPC standards and have been accepted by many industry-leading companies over 20+ years.',
+      },
+      {
+        q: 'Do you use anti-static materials for shipping?',
+        a: 'Yes. All components and finished assemblies are stored and shipped using industry-standard anti-static materials and packaging protocols.',
+      },
+      {
+        q: "What happens if there's an issue with my order?",
+        a: "We contact you immediately. No ghosting, no excuses. We identify the root cause, fix the issue, and make sure it doesn't happen again. Our reputation in Montreal's manufacturing community is built on exactly this.",
+      },
+    ],
+  },
+  {
+    title: 'Technical',
+    items: [
+      {
+        q: 'What assembly technologies do you support?',
+        a: 'We support Surface Mount Technology (SMT) with automated equipment, Through-Hole Technology (THT) with lead-free wave solder, mixed SMT + THT assemblies, cable harness assembly, and complete turnkey builds including enclosures.',
+      },
+      {
+        q: 'What is your pick and place capacity?',
+        a: 'Our pick and place machine has a feeder capacity of 180 slots. For higher volumes, we have sub-contracting capabilities with reliable partner suppliers.',
+      },
+      {
+        q: 'Do you have distributor integrations for component sourcing?',
+        a: 'Yes. We have APIs connected with DigiKey and Mouser for real-time pricing and stock visibility. We are actively adding all major distributors and manufacturers to our system.',
+      },
+      {
+        q: 'What industries have you worked in?',
+        a: "We have direct experience in aerospace, industrial electronics, communications, and consumer electronics. Our customers' products end up at companies like Bombardier, Alstom, Creaform, Pratt & Whitney Canada, and Google. With 35 years of experience — if it has a PCB, we've likely built it.",
+      },
+    ],
+  },
+];
+
+export function FaqAccordion() {
+  return (
+    <section className="py-12 px-6 pb-24">
+      <div className="mx-auto max-w-3xl space-y-12">
+        {categories.map((category) => (
+          <div key={category.title}>
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-[--accent-blue] mb-6">
+              {category.title}
+            </h2>
+            <Accordion multiple className="space-y-3">
+              {category.items.map((item, i) => (
+                <AccordionItem
+                  key={i}
+                  value={`${category.title}-${i}`}
+                  className="rounded-2xl border border-[--border-color] bg-[--bg-surface] px-6 overflow-hidden data-[state=open]:border-[--border-accent]"
+                >
+                  <AccordionTrigger className="text-left text-[--text-primary] font-medium py-5 hover:no-underline hover:text-[--accent-blue] transition-colors [&[data-state=open]>svg]:text-[--accent-blue]">
+                    {item.q}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-[--text-secondary] leading-relaxed pb-5">
+                    {item.a}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
