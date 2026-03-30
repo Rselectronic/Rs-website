@@ -4,10 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: var(--font-display), "Playfair Display", Georgia, serif;
-  --font-body: var(--font-body), "Source Serif 4", Georgia, serif;
+  --font-display: var(--font-display), "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-mono-jb), "JetBrains Mono", ui-monospace, monospace;
-  --font-sans: var(--font-body), "Source Serif 4", Georgia, serif;
+  --font-sans: var(--font-body), "Inter", ui-sans-serif, system-ui, sans-serif;
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -36,18 +36,18 @@
 }
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #0F172A;
+  --background: #F8F9FB;
+  --foreground: #1A202C;
   --card: #FFFFFF;
-  --card-foreground: #0F172A;
+  --card-foreground: #1A202C;
   --popover: #FFFFFF;
   --popover-foreground: #0F172A;
   --primary: #2563EB;
   --primary-foreground: #FFFFFF;
   --secondary: #F1F5F9;
   --secondary-foreground: #0F172A;
-  --muted: #F8FAFC;
-  --muted-foreground: #64748B;
+  --muted: #F1F3F7;
+  --muted-foreground: #5A6578;
   --accent: #2563EB;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
@@ -58,7 +58,7 @@
   --ring: #2563EB;
   --radius: 0.75rem;
 
-  --blue-50: #EFF6FF;
+  --blue-50: #EEF2F9;
   --blue-100: #DBEAFE;
   --blue-500: #3B82F6;
   --blue-600: #2563EB;

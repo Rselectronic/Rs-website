@@ -1,21 +1,19 @@
 import type { Metadata } from 'next';
-import { Playfair_Display, Source_Serif_4, JetBrains_Mono } from 'next/font/google';
+import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import './globals.css';
 
-const playfair = Playfair_Display({
+const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-display',
   display: 'swap',
 });
 
-const sourceSerif = Source_Serif_4({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600'],
-  style: ['normal', 'italic'],
   variable: '--font-body',
   display: 'swap',
 });
@@ -41,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${sourceSerif.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${plusJakarta.variable} ${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="relative min-h-full flex flex-col font-body">
         <Navbar />
