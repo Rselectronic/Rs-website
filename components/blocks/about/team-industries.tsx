@@ -12,38 +12,38 @@ const industries = [
 
 export function TeamIndustries() {
   return (
-    <section className="border-y-4 border-[var(--foreground)]">
-      <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-[2px] bg-[var(--foreground)]" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
+    <section className="bg-white py-24 md:py-32 px-6 md:px-8 lg:px-12">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-[2px] bg-[#2563EB]" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
             Industries Served
           </span>
         </div>
-        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-4">
           Experience across <span className="italic font-normal">every sector</span>
         </h2>
-        <p className="text-[var(--muted-foreground)] leading-relaxed max-w-2xl mb-16">
+        <p className="text-[#64748B] leading-relaxed max-w-2xl mb-16">
           Montreal&apos;s manufacturing hub has exposed RS to the full spectrum of
           electronics production. Whatever your industry, we&apos;ve built boards like yours.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-0">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           {industries.map((ind, i) => (
             <motion.div
               key={ind.name}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group flex items-start gap-6 p-8 border-2 border-[var(--foreground)] -mt-[2px] -ml-[2px] first:mt-0 transition-colors duration-100 hover:bg-[var(--foreground)] hover:text-[var(--background)]"
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="group flex items-start gap-5 p-6 md:p-8 bg-[#EFF6FF] rounded-2xl border border-[#E2E8F0] transition-all duration-300 hover:border-[#2563EB] hover:shadow-lg hover:shadow-blue-500/10"
             >
-              <div className="w-12 h-12 border-2 border-current flex items-center justify-center shrink-0">
-                <ind.icon size={20} strokeWidth={1.5} />
+              <div className="w-12 h-12 rounded-xl bg-white border border-[#2563EB]/20 flex items-center justify-center shrink-0 group-hover:bg-[#2563EB] group-hover:text-white transition-colors duration-300">
+                <ind.icon size={20} strokeWidth={1.5} className="text-[#2563EB] group-hover:text-white transition-colors duration-300" />
               </div>
               <div>
-                <h3 className="font-display text-xl font-bold mb-1">{ind.name}</h3>
-                <p className="text-sm opacity-70">{ind.note}</p>
+                <h3 className="font-display text-xl font-bold text-[#0F172A] mb-1">{ind.name}</h3>
+                <p className="text-sm text-[#64748B]">{ind.note}</p>
               </div>
             </motion.div>
           ))}

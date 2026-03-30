@@ -1,29 +1,48 @@
+'use client';
+
+import { useRef } from 'react';
+import { useScroll, useTransform, motion } from 'motion/react';
+import Image from 'next/image';
+
 export function ServicesHero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start start', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+
   return (
-    <section className="py-24 md:py-32 lg:py-40 px-6 md:px-8 lg:px-12">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex items-center gap-4 mb-8">
-          <div className="w-12 h-[2px] bg-[var(--foreground)]" />
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
+    <section ref={containerRef} className="relative">
+      <div className="relative h-[70vh] md:h-[80vh] overflow-hidden rounded-3xl mx-4 md:mx-8 mt-4">
+        <motion.div style={{ y }} className="absolute inset-0 scale-110">
+          <Image
+            src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80"
+            alt="Electronics manufacturing"
+            fill
+            style={{ objectFit: 'cover' }}
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </motion.div>
+
+        <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 mix-blend-difference">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-white/70 mb-6">
             Services
           </span>
+          <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tighter text-white leading-none">
+            Full turnkey PCB
+            <br />
+            <span className="italic font-normal">manufacturing</span> — or just
+            <br />
+            the parts you need
+          </h1>
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl mt-6">
+            R. S. Électronique Inc. has been providing PCB assembly services for over
+            20 years with 35+ years of field experience. Three service models. One
+            standard of quality.
+          </p>
         </div>
-        <h1 className="font-display text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tighter leading-none mb-6">
-          Full turnkey PCB
-          <br />
-          <span className="italic font-normal">manufacturing</span> — or just
-          <br />
-          the parts you need
-        </h1>
-        <div className="flex items-center gap-4 mb-8">
-          <div className="h-[4px] w-24 bg-[var(--foreground)]" />
-          <div className="w-3 h-3 border-2 border-[var(--foreground)]" />
-        </div>
-        <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-2xl">
-          R. S. Électronique Inc. has been providing PCB assembly services for over
-          20 years with 35+ years of field experience. Three service models. One
-          standard of quality.
-        </p>
       </div>
     </section>
   );

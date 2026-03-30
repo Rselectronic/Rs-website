@@ -14,7 +14,7 @@ export function Customers() {
           {customers.map((name) => (
             <span
               key={name}
-              className="font-display text-xl md:text-2xl font-bold text-[var(--foreground)] opacity-20 hover:opacity-100 transition-opacity duration-100"
+              className="font-display text-xl md:text-2xl font-bold text-[var(--blue-900)] opacity-20 hover:opacity-100 hover:text-[var(--primary)] transition-all duration-200"
             >
               {name}
             </span>

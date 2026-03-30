@@ -23,23 +23,34 @@ const cards = [
 
 export function MissionVisionValues() {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-8 lg:px-12">
+    <section className="bg-[#EFF6FF] py-24 md:py-32 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-2 border-[var(--foreground)]">
+        <div className="text-center mb-16">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
+            What Drives Us
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mt-3">
+            Mission, Vision &amp; <span className="italic font-normal">Values</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card, i) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group p-8 md:p-10 border-b-2 md:border-b-0 md:border-r-2 border-[var(--foreground)] last:border-b-0 last:border-r-0 transition-colors duration-100 hover:bg-[var(--foreground)] hover:text-[var(--background)]"
+              transition={{ delay: i * 0.12, duration: 0.5 }}
+              className="group bg-white rounded-2xl border border-[#E2E8F0] p-8 md:p-10 transition-all duration-300 hover:border-[#2563EB] hover:shadow-lg hover:shadow-blue-500/10"
             >
-              <div className="w-12 h-12 border-2 border-current flex items-center justify-center mb-6">
-                <card.icon size={20} strokeWidth={1.5} />
+              <div className="w-12 h-12 rounded-xl bg-[#EFF6FF] border border-[#2563EB]/20 flex items-center justify-center mb-6 group-hover:bg-[#2563EB] group-hover:text-white transition-colors duration-300">
+                <card.icon size={20} strokeWidth={1.5} className="text-[#2563EB] group-hover:text-white transition-colors duration-300" />
               </div>
-              <h3 className="font-display text-2xl font-bold mb-4 italic">{card.title}</h3>
-              <p className="text-sm leading-relaxed opacity-70">{card.body}</p>
+              <h3 className="font-display text-2xl font-bold text-[#0F172A] mb-4 italic">
+                {card.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-[#64748B]">{card.body}</p>
             </motion.div>
           ))}
         </div>

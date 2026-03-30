@@ -14,27 +14,33 @@ const capabilities = [
 
 export function CapabilitiesDetail() {
   return (
-    <section className="py-24 md:py-32 px-6 md:px-8 lg:px-12">
+    <section className="bg-[#EFF6FF] py-24 md:py-32 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
-        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-16">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="w-10 h-[2px] bg-[#2563EB]" />
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
+            Capabilities
+          </span>
+        </div>
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-16">
           Core assembly <span className="italic font-normal">capabilities</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {capabilities.map((cap, i) => (
             <motion.div
               key={cap.title}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="group p-8 border-2 border-[var(--foreground)] -mt-[2px] -ml-[2px] transition-colors duration-100 hover:bg-[var(--foreground)] hover:text-[var(--background)]"
+              transition={{ delay: i * 0.08, duration: 0.5 }}
+              className="group bg-white rounded-2xl border border-[#E2E8F0] p-8 transition-all duration-300 hover:border-[#2563EB] hover:shadow-lg hover:shadow-blue-500/10"
             >
-              <h3 className="font-display text-lg font-bold mb-2 flex items-center justify-between">
+              <h3 className="font-display text-lg font-bold text-[#0F172A] mb-2 flex items-center justify-between">
                 {cap.title}
-                <ArrowRight size={16} strokeWidth={1.5} className="opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
+                <ArrowRight size={16} strokeWidth={1.5} className="text-[#2563EB] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </h3>
-              <p className="text-sm leading-relaxed opacity-70">{cap.detail}</p>
+              <p className="text-sm leading-relaxed text-[#64748B]">{cap.detail}</p>
             </motion.div>
           ))}
         </div>

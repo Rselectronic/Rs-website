@@ -27,19 +27,19 @@ const services = [
 
 export function ServicesPreview() {
   return (
-    <section className="border-y-4 border-[var(--foreground)]">
+    <section className="bg-[var(--blue-50)]">
       <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32">
         <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-[2px] bg-[var(--foreground)]" />
+          <div className="w-12 h-[2px] bg-[var(--primary)]" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
             Our Services
           </span>
         </div>
-        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-16">
+        <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-16 text-[var(--blue-900)]">
           Three ways to <span className="italic font-normal">work with us</span>
         </h2>
 
-        <div className="space-y-0">
+        <div className="space-y-3">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -47,20 +47,20 @@ export function ServicesPreview() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group grid grid-cols-1 md:grid-cols-12 gap-6 py-8 border-t-2 border-[var(--foreground)] last:border-b-2 hover:bg-[var(--foreground)] hover:text-[var(--background)] transition-colors duration-100 px-4 md:px-6"
+              className="group grid grid-cols-1 md:grid-cols-12 gap-6 py-8 px-6 md:px-8 rounded-2xl border border-[var(--border)] bg-white hover:border-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all duration-200"
             >
-              <div className="md:col-span-1 font-mono text-sm text-[var(--muted-foreground)] group-hover:text-[var(--background)] group-hover:opacity-60">
+              <div className="md:col-span-1 font-mono text-sm text-[var(--muted-foreground)] group-hover:text-white/60">
                 {service.num}
               </div>
               <div className="md:col-span-3">
-                <h3 className="font-display text-2xl font-bold">{service.title}</h3>
+                <h3 className="font-display text-2xl font-bold text-[var(--blue-900)] group-hover:text-white">{service.title}</h3>
               </div>
               <div className="md:col-span-7">
-                <p className="text-sm leading-relaxed opacity-70">{service.body}</p>
+                <p className="text-sm leading-relaxed text-[var(--muted-foreground)] group-hover:text-white/80">{service.body}</p>
               </div>
               <div className="md:col-span-1 flex items-start justify-end">
                 {service.hasLink && (
-                  <Link href="/services" className="group-hover:text-[var(--background)]">
+                  <Link href="/services" className="text-[var(--primary)] group-hover:text-white">
                     <ArrowRight size={20} strokeWidth={1.5} />
                   </Link>
                 )}

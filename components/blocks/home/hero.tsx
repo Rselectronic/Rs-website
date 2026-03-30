@@ -1,87 +1,108 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
+import { useRef } from 'react';
 
 export function Hero() {
+  const container = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    offset: ['start end', 'end start'],
+    target: container,
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+
   return (
-    <section className="relative">
-      <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32 lg:py-40">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+    <>
+      {/* Parallax image hero */}
+      <div className="mx-3 md:mx-5 mt-2 overflow-hidden rounded-3xl bg-white">
+        <div
+          ref={container}
+          className="relative flex h-[85vh] min-h-[600px] items-end overflow-hidden"
+          style={{ clipPath: 'polygon(0% 0, 100% 0%, 100% 100%, 0 100%)' }}
         >
-          {/* Eyebrow */}
-          <div className="flex items-center gap-4 mb-8">
-            <div className="w-12 h-[2px] bg-[var(--foreground)]" />
-            <span className="font-mono text-[11px] uppercase tracking-widest text-[var(--muted-foreground)]">
-              Montreal · Since 2003 · IPC Certified
-            </span>
+          {/* Text overlay with mix-blend */}
+          <div className="relative z-10 flex h-full w-full flex-col justify-between p-8 md:p-12 lg:p-16 text-white mix-blend-difference">
+            {/* Top row */}
+            <div className="flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-[2px] bg-white" />
+                <span className="font-mono text-[11px] uppercase tracking-widest">
+                  Montreal &middot; Since 2003 &middot; IPC Certified
+                </span>
+              </div>
+              <p className="hidden md:block w-[28vw] text-right text-sm md:text-base leading-relaxed opacity-80">
+                From prototypes to mid-volume production — we handle fabrication,
+                procurement, and assembly under one roof.
+              </p>
+            </div>
+
+            {/* Bottom headline */}
+            <div>
+              <h1 className="font-display text-[10vw] md:text-[7vw] lg:text-[5.5vw] font-bold leading-[0.95] tracking-tighter uppercase">
+                Trusted Partner in
+                <br />
+                <span className="italic font-normal">Exceptional</span> PCB Assembly
+              </h1>
+
+              {/* CTAs below headline */}
+              <div className="flex flex-wrap items-center gap-4 mt-8">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center bg-[var(--primary)] text-white font-mono text-xs uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-[var(--primary)]/90 border-2 border-[var(--primary)] transition-colors duration-200"
+                >
+                  Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link
+                  href="/services"
+                  className="inline-flex items-center bg-transparent text-white font-mono text-xs uppercase tracking-widest px-8 py-4 rounded-xl border-2 border-white hover:bg-white hover:text-[var(--blue-900)] transition-colors duration-200"
+                >
+                  View Our Services
+                </Link>
+              </div>
+            </div>
           </div>
 
-          {/* Oversized headline */}
-          <h1 className="font-display text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold leading-none tracking-tighter mb-8">
-            Trusted
-            <br />
-            <span className="italic font-normal">Partner in</span>
-            <br />
-            PCB Assembly
-          </h1>
-
-          {/* Decorative rule with square */}
-          <div className="flex items-center gap-4 mb-10">
-            <div className="h-[4px] w-24 bg-[var(--foreground)]" />
-            <div className="w-3 h-3 border-2 border-[var(--foreground)]" />
+          {/* Parallax background image */}
+          <div className="fixed top-[-10vh] left-0 h-[120vh] w-full">
+            <motion.div className="relative h-full w-full" style={{ y }}>
+              <Image
+                alt="Close-up of a green printed circuit board with electronic components and copper traces"
+                fill
+                priority
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80"
+                style={{ objectFit: 'cover' }}
+                className="brightness-[0.35]"
+              />
+            </motion.div>
           </div>
-
-          {/* Subheadline */}
-          <p className="text-lg md:text-xl text-[var(--muted-foreground)] leading-relaxed max-w-xl mb-12">
-            From prototypes to mid-volume production — we handle fabrication,
-            procurement, and assembly under one roof. Same-day quotes.
-            24–48 hour turn capability.
-          </p>
-
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-4">
-            <Button asChild>
-              <Link href="/contact">
-                Request a Quote <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/services">View Our Services</Link>
-            </Button>
-          </div>
-        </motion.div>
+        </div>
       </div>
 
-      {/* Stats bar — inverted */}
-      <div className="bg-[var(--foreground)] text-[var(--background)] relative overflow-hidden">
-        {/* Subtle vertical line texture */}
+      {/* Stats bar — dark blue */}
+      <div className="bg-[var(--blue-900)] text-white relative overflow-hidden">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 1px, #fff 1px, #fff 2px)',
+            backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 2px)',
             backgroundSize: '4px 100%',
-            opacity: 0.03,
           }}
         />
         <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-10 relative">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8">
             {[
               { value: '35+', label: 'Years Experience' },
-              { value: '200–400', label: 'Products / Year' },
+              { value: '200\u2013400', label: 'Products / Year' },
               { value: 'IPC Cl.2', label: 'Build Standard' },
-              { value: '24–48hr', label: 'Fastest Turn' },
+              { value: '24\u201348hr', label: 'Fastest Turn' },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-3xl md:text-4xl font-bold tracking-tight">
                   {stat.value}
                 </p>
-                <p className="font-mono text-[10px] uppercase tracking-widest opacity-60 mt-1">
+                <p className="font-mono text-[10px] uppercase tracking-widest text-white/50 mt-1">
                   {stat.label}
                 </p>
               </div>
@@ -89,6 +110,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }

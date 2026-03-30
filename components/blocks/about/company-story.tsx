@@ -15,12 +15,27 @@ const specs = [
 
 export function CompanyStory() {
   return (
-    <section className="border-y-4 border-[var(--foreground)]">
+    <section className="bg-white">
       <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
           {/* Story */}
-          <div className="lg:col-span-3 space-y-6 text-[var(--muted-foreground)] leading-relaxed">
-            <p className="text-lg text-[var(--foreground)] first-letter:font-display first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-3 space-y-6 text-[#64748B] leading-relaxed"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-[2px] bg-[#2563EB]" />
+              <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
+                Our Story
+              </span>
+            </div>
+            <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-4">
+              Two decades of <span className="italic font-normal">trusted assembly</span>
+            </h2>
+            <p className="text-lg text-[#0F172A] first-letter:font-display first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none first-letter:text-[#2563EB]">
               R. S. Électronique Inc., formerly known as R.S Electronics, began
               serving Montreal, Quebec in 2003. Since then it has fulfilled the
               assembly needs of manufacturers, entrepreneurs, and researchers
@@ -43,25 +58,26 @@ export function CompanyStory() {
               200–400 distinct products built each year, RS has deep expertise in
               component databases, production scheduling, and pricing accuracy.
             </p>
-          </div>
+          </motion.div>
 
           {/* Spec panel */}
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 border-2 border-[var(--foreground)] p-8"
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-2 bg-[#EFF6FF] border border-[#E2E8F0] rounded-2xl p-8"
           >
-            <p className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] mb-8 pb-2 border-b-2 border-[var(--foreground)] inline-block">
+            <p className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB] mb-8 pb-2 border-b border-[#2563EB]/30 inline-block">
               At a Glance
             </p>
             <div className="space-y-5">
               {specs.map((spec) => (
                 <div key={spec.label}>
-                  <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)] block">
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-[#64748B] block">
                     {spec.label}
                   </span>
-                  <span className="font-mono text-sm text-[var(--foreground)]">{spec.value}</span>
+                  <span className="font-mono text-sm text-[#0F172A]">{spec.value}</span>
                 </div>
               ))}
             </div>
