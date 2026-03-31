@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const memberships = [
@@ -28,17 +27,15 @@ export function Memberships() {
               transition={{ delay: i * 0.1 }}
               className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-8 flex flex-col items-center justify-center hover:border-[var(--primary)] hover:shadow-lg hover:shadow-[var(--primary)]/5 transition-all duration-200"
             >
-              <div className="h-14 flex items-center justify-center mb-3">
-                <Image
+              <div className="h-16 flex items-center justify-center mb-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={m.logo}
                   alt={m.name}
-                  width={120}
-                  height={56}
-                  className="object-contain max-h-14"
-                  style={{ height: 'auto', maxHeight: 56, width: 'auto' }}
+                  style={{ maxHeight: 64, width: 'auto', maxWidth: '100%' }}
                 />
               </div>
-              <p className="text-xs text-[var(--muted-foreground)]">{m.fullName}</p>
+              <p className="text-xs text-[var(--muted-foreground)] leading-snug">{m.fullName}</p>
             </motion.div>
           ))}
         </div>

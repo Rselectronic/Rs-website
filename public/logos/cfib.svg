@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 60"><circle cx="22" cy="22" r="20" fill="#e31837"/><ellipse cx="22" cy="32" rx="10" ry="8" fill="#e31837"/><text x="8" y="30" font-family="Arial Black, sans-serif" font-size="18" font-weight="900" fill="#fff">C</text><text x="42" y="40" font-family="Arial Black, sans-serif" font-size="38" font-weight="900" fill="#e31837">FIB</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80">
+  <path d="M40 5C20 5 5 20 5 40s15 35 35 35c5 0 10-1 14-3l8 8h-8v-6h12v12h-6v-4l-8-8c-4 2-8 3-12 3C17 77 0 60 0 40S17 3 40 3c12 0 22 5 29 13l-5 5C58 13 50 8 40 8z" fill="#E31837"/>
+  <path d="M35 55l-12-18 12-18h8L31 37l12 18z" fill="#fff" transform="translate(10,0)"/>
+  <text x="78" y="55" font-family="'Arial Black',sans-serif" font-size="48" font-weight="900" fill="#E31837">FIB</text>
+</svg>

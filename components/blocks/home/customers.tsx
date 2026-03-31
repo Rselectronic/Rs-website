@@ -3,11 +3,11 @@
 import Image from 'next/image';
 
 const customers = [
-  { name: 'Bombardier', logo: '/logos/bombardier.svg', height: 30 },
-  { name: 'Alstom', logo: '/logos/alstom.svg', height: 40 },
-  { name: 'Creaform', logo: '/logos/creaform.svg', height: 32 },
-  { name: 'Pratt & Whitney Canada', logo: '/logos/pratt-whitney.svg', height: 28 },
-  { name: 'Google', logo: '/logos/google.png', height: 36 },
+  { name: 'Bombardier', logo: '/logos/bombardier.svg', h: 40 },
+  { name: 'Alstom', logo: '/logos/alstom.svg', h: 44 },
+  { name: 'Creaform', logo: '/logos/creaform.svg', h: 28 },
+  { name: 'Pratt & Whitney Canada', logo: '/logos/pratt-whitney.svg', h: 36 },
+  { name: 'Google', logo: '/logos/google.png', h: 34, png: true },
 ];
 
 export function Customers() {
@@ -18,20 +18,30 @@ export function Customers() {
           Our Customers Sell To
         </span>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8 mt-10">
+        <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10 mt-12">
           {customers.map((c) => (
             <div
               key={c.name}
-              className="opacity-40 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
+              className="opacity-30 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
+              title={c.name}
             >
-              <Image
-                src={c.logo}
-                alt={c.name}
-                width={c.height * 4}
-                height={c.height}
-                className="object-contain"
-                style={{ height: c.height, width: 'auto' }}
-              />
+              {c.png ? (
+                <Image
+                  src={c.logo}
+                  alt={c.name}
+                  width={c.h * 4}
+                  height={c.h}
+                  unoptimized
+                  style={{ height: c.h, width: 'auto' }}
+                />
+              ) : (
+                /* eslint-disable-next-line @next/next/no-img-element */
+                <img
+                  src={c.logo}
+                  alt={c.name}
+                  style={{ height: c.h, width: 'auto' }}
+                />
+              )}
             </div>
           ))}
         </div>
