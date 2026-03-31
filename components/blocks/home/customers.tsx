@@ -4,11 +4,11 @@ import Image from 'next/image';
 import { useI18n } from '@/lib/i18n';
 
 const customers = [
-  { name: 'Bombardier', logo: '/logos/bombardier.svg', h: 40 },
-  { name: 'Alstom', logo: '/logos/alstom.svg', h: 44 },
-  { name: 'Creaform', logo: '/logos/creaform.svg', h: 28 },
-  { name: 'Pratt & Whitney Canada', logo: '/logos/pratt-whitney.svg', h: 36 },
-  { name: 'Google', logo: '/logos/google.png', h: 34, png: true },
+  { name: 'Bombardier', logo: '/logos/google.png', hasLogo: false },
+  { name: 'Alstom', logo: null, hasLogo: false },
+  { name: 'Creaform', logo: null, hasLogo: false },
+  { name: 'Pratt & Whitney Canada', logo: null, hasLogo: false },
+  { name: 'Google', logo: '/logos/google.png', hasLogo: true },
 ];
 
 export function Customers() {
@@ -28,22 +28,19 @@ export function Customers() {
               className="opacity-30 hover:opacity-100 transition-all duration-300 grayscale hover:grayscale-0"
               title={c.name}
             >
-              {c.png ? (
+              {c.hasLogo && c.logo ? (
                 <Image
                   src={c.logo}
                   alt={c.name}
-                  width={c.h * 4}
-                  height={c.h}
+                  width={140}
+                  height={34}
                   unoptimized
-                  style={{ height: c.h, width: 'auto' }}
+                  style={{ height: 34, width: 'auto' }}
                 />
               ) : (
-                /* eslint-disable-next-line @next/next/no-img-element */
-                <img
-                  src={c.logo}
-                  alt={c.name}
-                  style={{ height: c.h, width: 'auto' }}
-                />
+                <span className="font-display text-xl md:text-2xl font-bold text-[var(--blue-900)]">
+                  {c.name}
+                </span>
               )}
             </div>
           ))}
