@@ -1,37 +1,40 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const leadTimes = [
-  { type: 'Assembly Only (standard)', time: '1–2 weeks', notes: 'No premium fees' },
-  { type: 'Full Turnkey', time: '2–3 weeks', notes: 'Includes fab + procurement + assembly' },
-  { type: 'Quickturn Turnkey', time: '5–7 business days', notes: 'Subject to component availability' },
-  { type: 'Urgent / Emergency', time: '24–48 hours', notes: 'Call to discuss — 438-833-8477' },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function LeadTimes() {
+  const { t } = useI18n();
+
+  const leadTimes = [
+    { type: t('services.leadtimes.assembly.type'), time: t('services.leadtimes.assembly.time'), notes: t('services.leadtimes.assembly.notes') },
+    { type: t('services.leadtimes.turnkey.type'), time: t('services.leadtimes.turnkey.time'), notes: t('services.leadtimes.turnkey.notes') },
+    { type: t('services.leadtimes.quickturn.type'), time: t('services.leadtimes.quickturn.time'), notes: t('services.leadtimes.quickturn.notes') },
+    { type: t('services.leadtimes.urgent.type'), time: t('services.leadtimes.urgent.time'), notes: t('services.leadtimes.urgent.notes') },
+  ];
+
   return (
     <section className="bg-white py-24 md:py-32 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-[2px] bg-[#2563EB]" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
-            Turnaround
+            {t('services.leadtimes.label')}
           </span>
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-4">
-          Lead <span className="italic font-normal">times</span>
+          {t('services.leadtimes.title1')} <span className="italic font-normal">{t('services.leadtimes.title2')}</span>
         </h2>
         <p className="text-[#64748B] leading-relaxed mb-12">
-          We offer some of the fastest turnarounds in Montreal — with no premium fees on standard lead times.
+          {t('services.leadtimes.description')}
         </p>
 
         <div className="rounded-2xl border border-[#E2E8F0] overflow-hidden">
           {/* Header — desktop only */}
           <div className="hidden md:grid grid-cols-3 bg-[#2563EB] text-white px-6 py-4">
-            <span className="font-mono text-[10px] uppercase tracking-widest">Service Type</span>
-            <span className="font-mono text-[10px] uppercase tracking-widest">Lead Time</span>
-            <span className="font-mono text-[10px] uppercase tracking-widest">Notes</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest">{t('services.leadtimes.header.type')}</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest">{t('services.leadtimes.header.time')}</span>
+            <span className="font-mono text-[10px] uppercase tracking-widest">{t('services.leadtimes.header.notes')}</span>
           </div>
 
           {leadTimes.map((lt, i) => (
@@ -45,11 +48,11 @@ export function LeadTimes() {
             >
               <span className="text-sm font-medium text-[#0F172A]">{lt.type}</span>
               <span className="font-mono text-sm font-bold text-[#2563EB]">
-                <span className="font-mono text-[9px] uppercase tracking-widest text-[#64748B] font-normal mr-1 md:hidden">Lead time:</span>
+                <span className="font-mono text-[9px] uppercase tracking-widest text-[#64748B] font-normal mr-1 md:hidden">{t('services.leadtimes.mobileLeadTime')}</span>
                 {lt.time}
               </span>
               <span className="text-sm text-[#64748B]">
-                <span className="font-mono text-[9px] uppercase tracking-widest mr-1 md:hidden">Notes:</span>
+                <span className="font-mono text-[9px] uppercase tracking-widest mr-1 md:hidden">{t('services.leadtimes.mobileNotes')}</span>
                 {lt.notes}
               </span>
             </motion.div>
@@ -57,15 +60,15 @@ export function LeadTimes() {
         </div>
 
         <p className="text-sm text-[#64748B] mt-8">
-          For urgent orders, call{' '}
+          {t('services.leadtimes.footer')}{' '}
           <a href="tel:4388338477" className="text-[#2563EB] underline underline-offset-4 hover:no-underline">
             +1 (438) 833-8477
           </a>{' '}
-          or email{' '}
+          {t('services.leadtimes.footer2')}{' '}
           <a href="mailto:sales@rspcbassembly.com" className="text-[#2563EB] underline underline-offset-4 hover:no-underline">
             sales@rspcbassembly.com
           </a>
-          . We&apos;ll tell you within the hour if we can hit your deadline.
+          {t('services.leadtimes.footer3')}
         </p>
       </div>
     </section>

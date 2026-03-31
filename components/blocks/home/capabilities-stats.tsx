@@ -1,16 +1,19 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const stats = [
-  { value: '180', label: 'Pick & place feeder slots' },
-  { value: '24\u201348hr', label: 'Fastest assembly turnaround' },
-  { value: 'IPC Cl.2', label: 'Build standard' },
-  { value: '200\u2013400', label: 'Distinct products per year' },
-  { value: '3\u20135 days', label: 'Fastest full turnkey' },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function CapabilitiesStats() {
+  const { t } = useI18n();
+
+  const stats = [
+    { value: '180', label: t('home.stats.feeders') },
+    { value: '24\u201348hr', label: t('home.stats.turnaround') },
+    { value: 'IPC Cl.2', label: t('home.stats.standard') },
+    { value: '200\u2013400', label: t('home.stats.products') },
+    { value: '3\u20135 days', label: t('home.stats.turnkey') },
+  ];
+
   return (
     <section className="bg-[var(--blue-900)] text-white relative overflow-hidden">
       {/* Subtle vertical line texture */}
@@ -25,7 +28,7 @@ export function CapabilitiesStats() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12">
           {stats.map((stat, i) => (
             <motion.div
-              key={stat.label}
+              key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}

@@ -1,18 +1,23 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { articles } from '@/lib/blog-data';
-
-function formatDate(dateStr: string) {
-  const date = new Date(dateStr + 'T00:00:00');
-  return date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
+import { useI18n } from '@/lib/i18n';
 
 export function BlogGrid() {
+  const { t, locale } = useI18n();
+
+  function formatDate(dateStr: string) {
+    const date = new Date(dateStr + 'T00:00:00');
+    return date.toLocaleDateString(locale === 'fr' ? 'fr-CA' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  }
+
   return (
     <section className="pb-24 md:pb-32 px-6 md:px-8 lg:px-12 pt-16">
       <div className="mx-auto max-w-6xl">
@@ -43,7 +48,7 @@ export function BlogGrid() {
                   {article.excerpt}
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--primary)] group-hover:gap-2.5 transition-all duration-200">
-                  Read more <ArrowRight className="h-3.5 w-3.5" />
+                  {t('blog.readMore')} <ArrowRight className="h-3.5 w-3.5" />
                 </span>
               </div>
             </Link>

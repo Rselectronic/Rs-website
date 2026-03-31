@@ -2,30 +2,32 @@
 
 import { Plane, Factory, Radio, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const industries = [
-  { icon: Plane, name: 'Aerospace', note: 'High-reliability builds, tight tolerances' },
-  { icon: Factory, name: 'Industrial Electronics', note: 'Harsh environment, rugged assemblies' },
-  { icon: Radio, name: 'Communications', note: 'RF boards, antennas, signal integrity' },
-  { icon: Cpu, name: 'Consumer Electronics', note: 'Prototype-to-production pipeline' },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function TeamIndustries() {
+  const { t } = useI18n();
+
+  const industries = [
+    { icon: Plane, name: t('about.industries.aerospace'), note: t('about.industries.aerospace.note') },
+    { icon: Factory, name: t('about.industries.industrial'), note: t('about.industries.industrial.note') },
+    { icon: Radio, name: t('about.industries.communications'), note: t('about.industries.communications.note') },
+    { icon: Cpu, name: t('about.industries.consumer'), note: t('about.industries.consumer.note') },
+  ];
+
   return (
     <section className="bg-white py-24 md:py-32 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-[2px] bg-[#2563EB]" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
-            Industries Served
+            {t('about.industries.label')}
           </span>
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-4">
-          Experience across <span className="italic font-normal">every sector</span>
+          {t('about.industries.title1')} <span className="italic font-normal">{t('about.industries.title2')}</span>
         </h2>
         <p className="text-[#64748B] leading-relaxed max-w-2xl mb-16">
-          Montreal&apos;s manufacturing hub has exposed RS to the full spectrum of
-          electronics production. Whatever your industry, we&apos;ve built boards like yours.
+          {t('about.industries.description')}
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

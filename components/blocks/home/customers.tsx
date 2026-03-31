@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n';
 
 const customers = [
   { name: 'Bombardier', logo: '/logos/bombardier.svg', h: 40 },
@@ -11,11 +12,13 @@ const customers = [
 ];
 
 export function Customers() {
+  const { t } = useI18n();
+
   return (
     <section className="py-20 md:py-28 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl text-center">
         <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
-          Our Customers Sell To
+          {t('home.customers.label')}
         </span>
 
         <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-10 mt-12">

@@ -2,28 +2,31 @@
 
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-
-const capabilities = [
-  { title: 'Surface Mount Technology (SMT)', detail: 'Automated pick & place with 180 feeder slots. High accuracy for fine-pitch and BGA components.' },
-  { title: 'Through-Hole Technology (THT)', detail: 'Lead-free wave solder machine. Full through-hole capability including mixed boards.' },
-  { title: 'Mixed SMT + THT', detail: 'Boards with both surface mount and through-hole components handled in a single workflow.' },
-  { title: 'Cable Harness Assembly', detail: 'Wire harness assembly for complete electro-mechanical builds.' },
-  { title: 'Complete Turnkey with Enclosures', detail: 'Full box-build capability including enclosures, mechanical assembly, and final integration.' },
-  { title: 'Inventory & Consignment Management', detail: 'We stock components for ongoing programs, manage reorder points, and track component databases.' },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function CapabilitiesDetail() {
+  const { t } = useI18n();
+
+  const capabilities = [
+    { title: t('services.capabilities.smt.title'), detail: t('services.capabilities.smt.detail') },
+    { title: t('services.capabilities.tht.title'), detail: t('services.capabilities.tht.detail') },
+    { title: t('services.capabilities.mixed.title'), detail: t('services.capabilities.mixed.detail') },
+    { title: t('services.capabilities.cable.title'), detail: t('services.capabilities.cable.detail') },
+    { title: t('services.capabilities.boxbuild.title'), detail: t('services.capabilities.boxbuild.detail') },
+    { title: t('services.capabilities.inventory.title'), detail: t('services.capabilities.inventory.detail') },
+  ];
+
   return (
     <section className="bg-[#EFF6FF] py-24 md:py-32 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-[2px] bg-[#2563EB]" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
-            Capabilities
+            {t('services.capabilities.label')}
           </span>
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-16">
-          Core assembly <span className="italic font-normal">capabilities</span>
+          {t('services.capabilities.title1')} <span className="italic font-normal">{t('services.capabilities.title2')}</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

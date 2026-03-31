@@ -3,8 +3,10 @@
 import { useRef } from 'react';
 import { useScroll, useTransform, motion } from 'motion/react';
 import Image from 'next/image';
+import { useI18n } from '@/lib/i18n';
 
 export function QuoteHero() {
+  const { t } = useI18n();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -30,16 +32,15 @@ export function QuoteHero() {
 
         <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20">
           <span className="font-mono text-[10px] uppercase tracking-widest text-white/70 mb-6">
-            Request a Quote
+            {t('quote.hero.label')}
           </span>
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-white leading-none mb-4">
-            Same-day quotes.
+            {t('quote.hero.title1')}
             <br />
-            <span className="italic font-normal">No hassle.</span>
+            <span className="italic font-normal">{t('quote.hero.title2')}</span>
           </h1>
           <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl">
-            Fill out the form below and we'll get back to you the same business day.
-            Complete RFQs — with Gerber files and BOM — receive priority turnaround.
+            {t('quote.hero.description')}
           </p>
         </div>
       </div>

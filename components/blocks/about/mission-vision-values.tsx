@@ -2,35 +2,38 @@
 
 import { Target, Globe, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
-
-const cards = [
-  {
-    icon: Target,
-    title: 'Mission',
-    body: 'To provide high quality assembly solutions for companies and individuals looking to produce printed circuit boards.',
-  },
-  {
-    icon: Globe,
-    title: 'Vision',
-    body: 'To become one of the most reputable Electronics Manufacturing Service providers in the world by ensuring high quality and customer satisfaction.',
-  },
-  {
-    icon: Users,
-    title: 'Values',
-    body: 'Maintain strong relationships with all clients and always provide the best service possible.',
-  },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function MissionVisionValues() {
+  const { t } = useI18n();
+
+  const cards = [
+    {
+      icon: Target,
+      title: t('about.mvv.mission.title'),
+      body: t('about.mvv.mission.body'),
+    },
+    {
+      icon: Globe,
+      title: t('about.mvv.vision.title'),
+      body: t('about.mvv.vision.body'),
+    },
+    {
+      icon: Users,
+      title: t('about.mvv.values.title'),
+      body: t('about.mvv.values.body'),
+    },
+  ];
+
   return (
     <section className="bg-[#EFF6FF] py-24 md:py-32 px-6 md:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
-            What Drives Us
+            {t('about.mvv.label')}
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mt-3">
-            Mission, Vision &amp; <span className="italic font-normal">Values</span>
+            {t('about.mvv.title')} <span className="italic font-normal">{t('about.mvv.titleItalic')}</span>
           </h2>
         </div>
 

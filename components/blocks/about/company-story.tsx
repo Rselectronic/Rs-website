@@ -1,19 +1,22 @@
 'use client';
 
 import { motion } from 'framer-motion';
-
-const specs = [
-  { label: 'Founded', value: '2003' },
-  { label: 'Location', value: 'Saint-Laurent, Montreal' },
-  { label: 'Build standard', value: 'IPC Class 2 (Class 3 on request)' },
-  { label: 'Capacity', value: '180 feeder slots' },
-  { label: 'Lead time (min)', value: '24–48 hours' },
-  { label: 'Turnkey speed', value: '3–5 business days' },
-  { label: 'Products/year', value: '200–400 distinct' },
-  { label: 'Industries', value: 'Aerospace · Industrial · Communications · Consumer' },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function CompanyStory() {
+  const { t } = useI18n();
+
+  const specs = [
+    { label: t('about.story.spec.founded'), value: t('about.story.spec.founded.value') },
+    { label: t('about.story.spec.location'), value: t('about.story.spec.location.value') },
+    { label: t('about.story.spec.standard'), value: t('about.story.spec.standard.value') },
+    { label: t('about.story.spec.capacity'), value: t('about.story.spec.capacity.value') },
+    { label: t('about.story.spec.leadtime'), value: t('about.story.spec.leadtime.value') },
+    { label: t('about.story.spec.turnkey'), value: t('about.story.spec.turnkey.value') },
+    { label: t('about.story.spec.products'), value: t('about.story.spec.products.value') },
+    { label: t('about.story.spec.industries'), value: t('about.story.spec.industries.value') },
+  ];
+
   return (
     <section className="bg-white">
       <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32">
@@ -29,34 +32,20 @@ export function CompanyStory() {
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-[2px] bg-[#2563EB]" />
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB]">
-                Our Story
+                {t('about.story.label')}
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight text-[#0F172A] mb-4">
-              Two decades of <span className="italic font-normal">trusted assembly</span>
+              {t('about.story.title1')} <span className="italic font-normal">{t('about.story.title2')}</span>
             </h2>
             <p className="text-lg text-[#0F172A] first-letter:font-display first-letter:text-5xl first-letter:font-bold first-letter:float-left first-letter:mr-3 first-letter:mt-1 first-letter:leading-none first-letter:text-[#2563EB]">
-              R. S. Électronique Inc., formerly known as R.S Electronics, began
-              serving Montreal, Quebec in 2003. Since then it has fulfilled the
-              assembly needs of manufacturers, entrepreneurs, and researchers
-              across Canada and internationally. Its reputation has been built on
-              high quality, unwavering integrity, and consistent reliability.
+              {t('about.story.p1')}
             </p>
             <p>
-              The team is comprised of individuals with more than 35 years of
-              experience in the field. Rarely does a situation arise for which a
-              solution cannot be found. New challenges are tackled by driven
-              members always striving for the highest level of customer
-              satisfaction — two strengths that give RS its distinctive reputation
-              in Montreal&apos;s manufacturing community.
+              {t('about.story.p2')}
             </p>
             <p>
-              RS&apos;s clientele spans a wide range of sectors: aerospace, industrial
-              electronics, communications, and consumer electronics. That diversity
-              has allowed the company to facilitate new orders efficiently and
-              avoid the errors that come with inexperience. With an average of
-              200–400 distinct products built each year, RS has deep expertise in
-              component databases, production scheduling, and pricing accuracy.
+              {t('about.story.p3')}
             </p>
           </motion.div>
 
@@ -69,7 +58,7 @@ export function CompanyStory() {
             className="lg:col-span-2 bg-[#EFF6FF] border border-[#E2E8F0] rounded-2xl p-8"
           >
             <p className="font-mono text-[10px] uppercase tracking-widest text-[#2563EB] mb-8 pb-2 border-b border-[#2563EB]/30 inline-block">
-              At a Glance
+              {t('about.story.glance')}
             </p>
             <div className="space-y-5">
               {specs.map((spec) => (

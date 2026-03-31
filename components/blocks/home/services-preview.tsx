@@ -3,46 +3,49 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-
-const services = [
-  {
-    num: '01',
-    title: 'Turnkey',
-    body: 'We manage everything — PCB fabrication, component procurement & BOM management, and assembly. You send the files, we deliver finished boards.',
-    hasLink: true,
-  },
-  {
-    num: '02',
-    title: 'Assembly Only',
-    body: 'You provide the PCBs and all components. We handle the assembly with the same precision and speed as our full turnkey builds.',
-    hasLink: false,
-  },
-  {
-    num: '03',
-    title: 'Consignment',
-    body: 'Partial or full consignment. You supply some materials; RS stocks and manages the rest. Flexible per project.',
-    hasLink: false,
-  },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function ServicesPreview() {
+  const { t } = useI18n();
+
+  const services = [
+    {
+      num: '01',
+      title: t('home.services.turnkey.title'),
+      body: t('home.services.turnkey.body'),
+      hasLink: true,
+    },
+    {
+      num: '02',
+      title: t('home.services.assembly.title'),
+      body: t('home.services.assembly.body'),
+      hasLink: false,
+    },
+    {
+      num: '03',
+      title: t('home.services.consignment.title'),
+      body: t('home.services.consignment.body'),
+      hasLink: false,
+    },
+  ];
+
   return (
     <section className="bg-[var(--blue-50)]">
       <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-24 md:py-32">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-12 h-[2px] bg-[var(--primary)]" />
           <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--muted-foreground)]">
-            Our Services
+            {t('home.services.label')}
           </span>
         </div>
         <h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-16 text-[var(--blue-900)]">
-          Three ways to <span className="italic font-normal">work with us</span>
+          {t('home.services.title1')} <span className="italic font-normal">{t('home.services.title2')}</span>
         </h2>
 
         <div className="space-y-3">
           {services.map((service, i) => (
             <motion.div
-              key={service.title}
+              key={i}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
