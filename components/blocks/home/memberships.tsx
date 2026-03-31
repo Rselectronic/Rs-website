@@ -1,12 +1,13 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const memberships = [
-  { acronym: 'IPC', name: 'Institute for Printed Circuits' },
-  { acronym: 'SMTA', name: 'Surface Mount Technology Association' },
-  { acronym: 'STIQ', name: 'Sous-traitance Industrielle Qu\u00e9bec' },
-  { acronym: 'CFIB', name: 'Canadian Federation of Independent Business' },
+  { name: 'IPC', fullName: 'Institute for Printed Circuits', logo: '/logos/ipc.svg' },
+  { name: 'SMTA', fullName: 'Surface Mount Technology Association', logo: '/logos/smta.svg' },
+  { name: 'STIQ', fullName: 'Sous-traitance Industrielle Québec', logo: '/logos/stiq.svg' },
+  { name: 'CFIB', fullName: 'Canadian Federation of Independent Business', logo: '/logos/cfib.svg' },
 ];
 
 export function Memberships() {
@@ -20,15 +21,24 @@ export function Memberships() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
           {memberships.map((m, i) => (
             <motion.div
-              key={m.acronym}
+              key={m.name}
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-8 text-center hover:border-[var(--primary)] hover:shadow-lg hover:shadow-[var(--primary)]/5 transition-all duration-200"
+              className="rounded-2xl border border-[var(--border)] bg-white p-6 md:p-8 flex flex-col items-center justify-center hover:border-[var(--primary)] hover:shadow-lg hover:shadow-[var(--primary)]/5 transition-all duration-200"
             >
-              <p className="font-display text-3xl font-bold text-[var(--primary)] mb-2">{m.acronym}</p>
-              <p className="text-xs text-[var(--muted-foreground)]">{m.name}</p>
+              <div className="h-14 flex items-center justify-center mb-3">
+                <Image
+                  src={m.logo}
+                  alt={m.name}
+                  width={120}
+                  height={56}
+                  className="object-contain max-h-14"
+                  style={{ height: 'auto', maxHeight: 56, width: 'auto' }}
+                />
+              </div>
+              <p className="text-xs text-[var(--muted-foreground)]">{m.fullName}</p>
             </motion.div>
           ))}
         </div>
