@@ -15,16 +15,18 @@ export function QuoteHero() {
   return (
     <section ref={containerRef} className="relative">
       <div className="relative h-[55vh] md:h-[60vh] overflow-hidden rounded-3xl mx-4 md:mx-8 mt-4">
-        <motion.div style={{ y }} className="absolute inset-0 scale-110">
-          <Image
-            src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80"
-            alt="PCB assembly quote"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
-          <div className="absolute inset-0 bg-black/60" />
-        </motion.div>
+        <div className="absolute inset-x-0 -top-[15%] -bottom-[15%]">
+          <motion.div style={{ y }} className="relative h-full w-full">
+            <Image
+              src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1920&q=80"
+              alt="PCB assembly quote"
+              fill
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+            <div className="absolute inset-0 bg-black/60" />
+          </motion.div>
+        </div>
 
         <div className="absolute inset-0 flex flex-col justify-center px-4 sm:px-8 md:px-12 lg:px-20">
           <span className="font-mono text-[10px] uppercase tracking-widest text-white/70 mb-6">
