@@ -26,7 +26,7 @@ export function ContactHero() {
       <div className="relative h-[65vh] md:h-[75vh] overflow-hidden rounded-3xl mx-4 md:mx-8 mt-4">
         <div className="absolute inset-x-0 -top-[15%] -bottom-[15%]">
           <motion.div style={{ y }} className="relative h-full w-full">
-            <Image src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1920&q=80" alt="RS PCB Assembly facility Montreal" fill style={{ objectFit: 'cover' }} priority />
+            <Image src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80" alt="RS PCB Assembly facility Montreal" fill style={{ objectFit: 'cover' }} priority />
             <div className="absolute inset-0 bg-black/60" />
           </motion.div>
         </div>
