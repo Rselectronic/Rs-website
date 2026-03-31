@@ -1,0 +1,47 @@
+import type { Metadata } from 'next';
+import { DM_Sans, JetBrains_Mono } from 'next/font/google';
+import { Navbar } from '@/components/layout/navbar';
+import { Footer } from '@/components/layout/footer';
+import { I18nProvider } from '@/lib/i18n';
+import './globals.css';
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-dm',
+  display: 'swap',
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono-jb',
+  display: 'swap',
+});
+
+export const metadata: Metadata = {
+  title: 'PCB Assembly Montreal | RS PCB Assembly — R. S. Électronique Inc.',
+  description:
+    "Montreal's trusted PCB contract manufacturer. Low to mid volume PCB assembly, full turnkey service, same-day quotes. Serving Quebec and North America since 2003.",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="en"
+      className={`${dmSans.variable} ${jetBrainsMono.variable} h-full antialiased`}
+    >
+      <body className="relative min-h-full flex flex-col font-sans">
+        <I18nProvider>
+          <Navbar />
+          <main className="relative z-10 flex-1 pt-20">{children}</main>
+          <Footer />
+        </I18nProvider>
+      </body>
+    </html>
+  );
+}
