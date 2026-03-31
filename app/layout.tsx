@@ -1,21 +1,14 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google';
+import { DM_Sans, JetBrains_Mono } from 'next/font/google';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { I18nProvider } from '@/lib/i18n';
 import './globals.css';
 
-const plusJakarta = Plus_Jakarta_Sans({
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-display',
-  display: 'swap',
-});
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600'],
-  variable: '--font-body',
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-dm',
   display: 'swap',
 });
 
@@ -40,9 +33,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakarta.variable} ${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
-      <body className="relative min-h-full flex flex-col font-body">
+      <body className="relative min-h-full flex flex-col font-sans">
         <I18nProvider>
           <Navbar />
           <main className="relative z-10 flex-1 pt-20">{children}</main>
