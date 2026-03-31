@@ -5,20 +5,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact' },
-];
+import { useI18n } from '@/lib/i18n';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false);
   const [isMobileOpen, setIsMobileOpen] = React.useState(false);
   const pathname = usePathname();
+  const { t } = useI18n();
+
+  const navLinks = [
+    { href: '/', label: t('nav.home') },
+    { href: '/about', label: t('nav.about') },
+    { href: '/services', label: t('nav.services') },
+    { href: '/blog', label: t('nav.blog') },
+    { href: '/faq', label: t('nav.faq') },
+    { href: '/contact', label: t('nav.contact') },
+  ];
 
   React.useEffect(() => {
     const handler = () => setIsScrolled(window.scrollY > 40);
@@ -108,8 +110,8 @@ export function Navbar() {
               href="/quote"
               className="inline-flex items-center bg-[var(--primary)] text-white font-semibold rounded-xl hover:bg-[var(--blue-700)] transition-all duration-200 shadow-md shadow-blue-500/25 px-3.5 py-2 text-xs md:px-5 md:py-2.5 md:text-sm"
             >
-              <span className="md:hidden">Get a Quote</span>
-              <span className="hidden md:inline">Get a Quote in 24-Hours Now!</span>
+              <span className="md:hidden">{t('nav.cta.short')}</span>
+              <span className="hidden md:inline">{t('nav.cta')}</span>
             </Link>
 
             <button
@@ -146,7 +148,7 @@ export function Navbar() {
                 href="/quote"
                 className="mt-4 w-full text-center bg-[var(--primary)] text-white font-semibold px-8 py-3.5 rounded-xl shadow-md shadow-blue-500/25"
               >
-                Get a Quote in 24-Hours Now!
+                {t('nav.cta')}
               </Link>
             </div>
           </div>

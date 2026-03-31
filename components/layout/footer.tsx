@@ -1,23 +1,28 @@
+'use client';
+
 import Link from 'next/link';
-
-const navigateLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'Contact' },
-];
-
-const serviceLinks = [
-  'Turnkey PCB Manufacturing',
-  'Assembly Only',
-  'Consignment / Partial Consignment',
-];
+import { useI18n } from '@/lib/i18n';
 
 const memberships = ['IPC', 'SMTA', 'STIQ', 'CFIB'];
 
 export function Footer() {
+  const { locale, setLocale, t } = useI18n();
+
+  const navigateLinks = [
+    { href: '/', label: t('nav.home') },
+    { href: '/about', label: t('nav.about') },
+    { href: '/services', label: t('nav.services') },
+    { href: '/blog', label: t('nav.blog') },
+    { href: '/faq', label: t('nav.faq') },
+    { href: '/contact', label: t('nav.contact') },
+  ];
+
+  const serviceLinks = [
+    t('footer.turnkey'),
+    t('footer.assembly'),
+    t('footer.consignment'),
+  ];
+
   return (
     <footer className="relative z-10 border-t border-[var(--border)] bg-white">
       <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-16 md:py-24">
@@ -30,7 +35,7 @@ export function Footer() {
               </div>
             </Link>
             <p className="text-sm text-[var(--muted-foreground)] leading-relaxed mb-6">
-              Montreal&apos;s trusted PCB assembly partner since 2003.
+              {t('footer.tagline')}
             </p>
             <div className="flex flex-wrap gap-2">
               {memberships.map((m) => (
@@ -47,7 +52,7 @@ export function Footer() {
           {/* Navigate */}
           <div>
             <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--primary)] mb-6 pb-2 border-b-2 border-[var(--primary)] inline-block">
-              Navigate
+              {t('footer.navigate')}
             </h3>
             <ul className="space-y-3">
               {navigateLinks.map((link) => (
@@ -66,7 +71,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--primary)] mb-6 pb-2 border-b-2 border-[var(--primary)] inline-block">
-              Services
+              {t('footer.services')}
             </h3>
             <ul className="space-y-3">
               {serviceLinks.map((service) => (
@@ -80,7 +85,7 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h3 className="font-mono text-[10px] uppercase tracking-widest text-[var(--primary)] mb-6 pb-2 border-b-2 border-[var(--primary)] inline-block">
-              Contact
+              {t('footer.contact')}
             </h3>
             <ul className="space-y-3 text-sm text-[var(--muted-foreground)]">
               <li>5580 Rue Vanden Abeele,<br />Saint-Laurent, QC H4S 1P9</li>
@@ -103,12 +108,22 @@ export function Footer() {
       <div className="bg-[var(--blue-900)]">
         <div className="mx-auto max-w-6xl px-6 md:px-8 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="font-mono text-[10px] uppercase tracking-widest text-white/50">
-            &copy; 2026 R. S. &Eacute;lectronique Inc. All rights reserved.
+            {t('footer.rights')}
           </p>
           <div className="flex gap-3 font-mono text-[10px] uppercase tracking-widest text-white/50">
-            <span className="text-white">EN</span>
+            <button
+              onClick={() => setLocale('en')}
+              className={`transition-colors duration-200 ${locale === 'en' ? 'text-white' : 'hover:text-white cursor-pointer'}`}
+            >
+              EN
+            </button>
             <span>|</span>
-            <span className="hover:text-white cursor-pointer transition-colors duration-200">FR</span>
+            <button
+              onClick={() => setLocale('fr')}
+              className={`transition-colors duration-200 ${locale === 'fr' ? 'text-white' : 'hover:text-white cursor-pointer'}`}
+            >
+              FR
+            </button>
           </div>
         </div>
       </div>

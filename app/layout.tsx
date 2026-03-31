@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google';
 import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
+import { I18nProvider } from '@/lib/i18n';
 import './globals.css';
 
 const plusJakarta = Plus_Jakarta_Sans({
@@ -42,9 +43,11 @@ export default function RootLayout({
       className={`${plusJakarta.variable} ${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="relative min-h-full flex flex-col font-body">
-        <Navbar />
-        <main className="relative z-10 flex-1 pt-20">{children}</main>
-        <Footer />
+        <I18nProvider>
+          <Navbar />
+          <main className="relative z-10 flex-1 pt-20">{children}</main>
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );
