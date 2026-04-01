@@ -1,19 +1,18 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { Upload, FileText, X, Send, CheckCircle, ArrowRight, Info, Shield, Loader2, AlertCircle } from 'lucide-react'
-import emailjs from '@emailjs/browser'
+import { encryptFiles } from '../utils/fileCrypto'
 
 const assemblyTypes = ['Turnkey', 'Assembly Only', 'Consignment']
 
-// EmailJS credentials — replace with your actual values after setup
-const EMAILJS_SERVICE_ID = 'service_rspcb'
-const EMAILJS_TEMPLATE_ID = 'template_rfq'
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'
+const API_URL = import.meta.env.PROD
+  ? 'https://rspcbassembly.com/new/api/send-quote.php'
+  : '/api/send-quote.php'
 
 export default function Quote() {
-  const formRef = useRef(null)
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
   const [error, setError] = useState('')
+  const [progress, setProgress] = useState('')
   const [files, setFiles] = useState([])
   const [form, setForm] = useState({
     name: '', email: '', company: '', phone: '',
@@ -36,42 +35,30 @@ export default function Quote() {
     e.preventDefault()
     setError('')
     setSending(true)
-
     try {
-      // Build file list string for the email
-      const fileNames = files.length > 0
-        ? files.map((f) => f.name + ' (' + fmt(f.size) + ')').join(', ')
-        : 'No files attached'
-
-      // Build template parameters
-      const templateParams = {
-        from_name: form.name,
-        from_email: form.email,
-        company: form.company,
-        phone: form.phone || 'Not provided',
-        project_name: form.projectName || 'Not specified',
-        board_name: form.boardName || 'Not specified',
-        assembly_type: form.assemblyType,
-        quantity: form.quantity,
-        target_date: form.targetDate || 'Not specified',
-        details: form.details || 'None',
-        file_names: fileNames,
+      let encryptedFiles = []
+      if (files.length > 0) {
+        setProgress('Encrypting files...')
+        encryptedFiles = await encryptFiles(files)
       }
-
-      // Send main notification email to Anas
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        templateParams,
-        EMAILJS_PUBLIC_KEY
-      )
-
-      setSubmitted(true)
+      setProgress('Sending quote request...')
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, files: encryptedFiles }),
+      })
+      const result = await response.json()
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setError(result.error || 'Something went wrong. Please try again.')
+      }
     } catch (err) {
-      console.error('EmailJS error:', err)
+      console.error('Submit error:', err)
       setError('Failed to send. Please email us directly at apatel@rspcbassembly.com')
     } finally {
       setSending(false)
+      setProgress('')
     }
   }
 
@@ -86,10 +73,10 @@ export default function Quote() {
             <CheckCircle className="w-16 h-16 text-pcb-600 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-sierra-900 mb-3">Quote Request Received</h2>
             <p className="text-gray-500 text-lg">
-              Thank you, {form.name}. We have received your request and will send a detailed quote within 24 hours.
+              Thank you, {form.name}. We have received your files and will send a detailed quote within 24 hours.
             </p>
             <p className="mt-3 text-gray-400 text-sm">
-              We will respond to <strong>{form.email}</strong>.
+              A confirmation has been sent to <strong>{form.email}</strong>.
             </p>
             <button
               onClick={() => {
@@ -129,7 +116,7 @@ export default function Quote() {
           <div className="grid lg:grid-cols-3 gap-10">
 
             <div className="lg:col-span-2">
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
 
                 <div>
                   <h2 className="text-xl font-bold text-sierra-900 mb-1">1. Upload Your Design Files</h2>
@@ -241,7 +228,7 @@ export default function Quote() {
                   {sending ? (
                     <span className="flex items-center">
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      Sending...
+                      {progress || 'Sending...'}
                     </span>
                   ) : (
                     <span className="flex items-center">
@@ -301,7 +288,7 @@ export default function Quote() {
 
                 <div className="bg-sierra-950 rounded-xl p-6 text-center">
                   <Shield className="w-6 h-6 text-pcb-400 mx-auto mb-2" />
-                  <p className="text-gray-400 text-xs">Your data is sent securely via encrypted SMTP.</p>
+                  <p className="text-gray-400 text-xs">Your files are encrypted and sent securely.</p>
                   <p className="text-gray-500 text-xs mt-1">Prefer email?</p>
                   <a href="mailto:apatel@rspcbassembly.com" className="inline-block mt-1.5 text-white font-semibold text-sm hover:text-pcb-400 transition-colors">
                     apatel@rspcbassembly.com

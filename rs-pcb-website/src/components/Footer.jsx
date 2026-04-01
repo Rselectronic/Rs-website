@@ -32,9 +32,14 @@ export default function Footer() {
               Contract electronics manufacturing and SMT PCB assembly in Montreal, Canada. Prototypes to production.
             </p>
             <div className="mt-4 flex items-center gap-3 text-xs text-gray-600">
-              <span>Member of AQT</span>
+              <span>Member of IPC</span>
               <span className="w-1 h-1 bg-gray-700 rounded-full" />
               <span>Member of SMTA</span>
+            </div>
+            <div className="mt-4 flex items-center gap-3 text-xs text-gray-600">
+              <span>Member of STIQ</span>
+              <span className="w-1 h-1 bg-gray-700 rounded-full" />
+              <span>Member of CFIB</span>
             </div>
           </div>
 

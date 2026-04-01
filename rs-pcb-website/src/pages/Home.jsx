@@ -317,7 +317,7 @@ export default function Home() {
             {/* Visual */}
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden">
-                <img src="/circuit-board site.jpg" alt="RS PCB Assembly facility" className="w-full h-full object-cover" />
+                <img src="/new/circuit-board site.jpg" alt="RS PCB Assembly facility" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
