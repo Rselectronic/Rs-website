@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R.S. ELECTRONIQUE INC. — Preview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .btn-primary { display:inline-flex; align-items:center; justify-content:center; padding:12px 24px; background:#2563eb; color:white; font-weight:600; border-radius:8px; text-decoration:none; transition:all 0.2s; box-shadow:0 10px 25px -5px rgba(37,99,235,0.25); }
+    .btn-primary:hover { background:#3b82f6; }
+    .btn-outline { display:inline-flex; align-items:center; justify-content:center; padding:12px 24px; border:2px solid rgba(255,255,255,0.3); color:white; font-weight:600; border-radius:8px; text-decoration:none; transition:all 0.2s; }
+    .btn-outline:hover { background:rgba(255,255,255,0.1); }
+    .btn-white { display:inline-flex; align-items:center; justify-content:center; padding:12px 24px; background:white; color:#1d4ed8; font-weight:600; border-radius:8px; text-decoration:none; transition:all 0.2s; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+    .btn-white:hover { background:#f1f5f9; }
+    .check-icon { width:16px; height:16px; color:#3b82f6; flex-shrink:0; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 antialiased">
+
+  <!-- TOP BAR -->
+  <div class="bg-[#060d1a] text-gray-400 text-xs hidden md:block">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-9">
+      <div class="flex items-center gap-5">
+        <span>+1 (438) 833-8477</span>
+        <span>apatel@rspcbassembly.com</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Montreal, QC, Canada</span>
+        <span class="text-gray-600">|</span>
+        <span>Mon–Fri: 8 AM – 5 PM EST</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="sticky top-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-[72px]">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-9 h-9 bg-[#0a1628] rounded-lg flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#3b82f6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+          </div>
+          <div class="flex items-baseline gap-1">
+            <span class="text-lg font-bold text-[#0a1628] tracking-tight">R.S. ELECTRONIQUE INC.</span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#" class="px-4 py-2 rounded-md text-sm font-medium text-blue-600 bg-blue-50">Home</a>
+          <a href="#about" class="px-4 py-2 rounded-md text-sm font-medium text-gray-500 hover:text-[#0a1628] hover:bg-gray-50">About</a>
+          <a href="#services" class="px-4 py-2 rounded-md text-sm font-medium text-gray-500 hover:text-[#0a1628] hover:bg-gray-50">Services</a>
+          <a href="#contact" class="px-4 py-2 rounded-md text-sm font-medium text-gray-500 hover:text-[#0a1628] hover:bg-gray-50">Contact</a>
+          <a href="#quote" class="ml-4 px-5 py-2.5 bg-[#2563eb] text-white text-sm font-semibold rounded-lg hover:bg-[#3b82f6] transition-all shadow-sm shadow-blue-500/20">Get a Quote in 24-Hours Now!</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative bg-[#0a1628] overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+    <div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-blue-500/10 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-tr from-blue-500/5 to-transparent"></div>
+    <div class="relative max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-20 md:pt-28 md:pb-28">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <!-- Left -->
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-[#0f1f3d] rounded-full border border-[#162d54] mb-6">
+            <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <span class="text-xs font-medium text-gray-300">Since 2003 — Montreal, Canada</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white leading-[1.12] tracking-tight">
+            PCB Fabrication,<br>Assembly &<br><span class="text-[#60a5fa]">Components</span>
+          </h1>
+          <p class="mt-5 text-base md:text-lg text-gray-400 leading-relaxed max-w-lg">
+            Upload your design files for a fast quote — and the fastest turnaround in Canada. From prototype to production, fully assembled boards in as fast as 5 days.
+          </p>
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#quote" class="btn-primary text-sm px-7 py-3.5">
+              <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Upload Files & Get Quote
+            </a>
+            <a href="#services" class="btn-outline text-sm px-7 py-3.5">Explore Capabilities</a>
+          </div>
+        </div>
+        <!-- Right: How it works card -->
+        <div class="hidden lg:block">
+          <div class="bg-white/[0.04] backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <h3 class="text-white font-semibold text-lg mb-1">How It Works</h3>
+            <p class="text-gray-500 text-sm mb-6">Three steps to finished boards.</p>
+            <div class="space-y-5">
+              <div class="flex gap-4 items-start">
+                <div class="w-8 h-8 bg-[#2563eb] rounded-lg flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">1</div>
+                <div><p class="text-white text-sm font-medium">Upload Your Files</p><p class="text-gray-500 text-xs mt-0.5">BOM, Gerbers, and assembly drawings.</p></div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="w-8 h-8 bg-[#2563eb] rounded-lg flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">2</div>
+                <div><p class="text-white text-sm font-medium">Get Your Quote</p><p class="text-gray-500 text-xs mt-0.5">Detailed pricing at multiple quantity levels within 24 hours.</p></div>
+              </div>
+              <div class="flex gap-4 items-start">
+                <div class="w-8 h-8 bg-[#2563eb] rounded-lg flex items-center justify-center flex-shrink-0 text-white text-sm font-bold">3</div>
+                <div><p class="text-white text-sm font-medium">We Build & Ship</p><p class="text-gray-500 text-xs mt-0.5">Turnkey assembly, inspected and delivered to your door.</p></div>
+              </div>
+            </div>
+            <a href="#quote" class="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#2563eb] text-white font-semibold rounded-lg hover:bg-[#3b82f6] transition-colors text-sm">
+              Start Your Quote
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="bg-[#2563eb]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="text-center"><div class="text-2xl md:text-3xl font-bold text-white">15+</div><div class="mt-0.5 text-xs text-blue-200 font-medium uppercase tracking-wide">Years Experience</div></div>
+        <div class="text-center"><div class="text-2xl md:text-3xl font-bold text-white">500+</div><div class="mt-0.5 text-xs text-blue-200 font-medium uppercase tracking-wide">Projects Delivered</div></div>
+        <div class="text-center"><div class="text-2xl md:text-3xl font-bold text-white">50+</div><div class="mt-0.5 text-xs text-blue-200 font-medium uppercase tracking-wide">Active Customers</div></div>
+        <div class="text-center"><div class="text-2xl md:text-3xl font-bold text-white">24hr</div><div class="mt-0.5 text-xs text-blue-200 font-medium uppercase tracking-wide">Quote Turnaround</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE TIERS -->
+  <section class="px-6 py-20 md:py-28 lg:px-8 bg-white" id="services">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-sm font-semibold text-[#2563eb] uppercase tracking-wider">Our Solutions</span>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-[#0a1628]">Choose Your Assembly Path</h2>
+        <p class="mt-3 text-gray-500">Flexibility and transparency for every project.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Prototype -->
+        <div class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-lg transition-all group">
+          <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#2563eb] transition-colors">
+            <svg class="w-6 h-6 text-[#2563eb] group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="text-xs font-bold text-[#2563eb] uppercase tracking-wider mb-1">Prototype</div>
+          <h3 class="text-xl font-bold text-[#0a1628] mb-2">Quick-Turn Assembly</h3>
+          <p class="text-gray-500 text-sm mb-5">Fast-track your design validation. Small batches in as fast as 5 business days.</p>
+          <ul class="space-y-2 mb-6 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> 1–50 boards</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Expedited turnaround</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> BOM review & DFM feedback</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> First article inspection</li>
+          </ul>
+          <a href="#quote" class="text-sm font-semibold text-[#2563eb] hover:text-[#3b82f6] inline-flex items-center gap-1">Get Quote <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Turnkey (Featured) -->
+        <div class="relative border-2 border-[#2563eb] rounded-2xl p-8 shadow-xl shadow-blue-500/10">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 bg-[#2563eb] text-white text-xs font-bold rounded-full uppercase tracking-wider">Most Popular</div>
+          <div class="w-12 h-12 bg-[#2563eb] rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          </div>
+          <div class="text-xs font-bold text-[#2563eb] uppercase tracking-wider mb-1">Turnkey</div>
+          <h3 class="text-xl font-bold text-[#0a1628] mb-2">Full-Service Assembly</h3>
+          <p class="text-gray-500 text-sm mb-5">Send your files, we do everything. Sourcing, fab, assembly, inspection, shipping.</p>
+          <ul class="space-y-2 mb-6 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Any quantity</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Component procurement</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Bare PCB sourcing</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> AOI inspection</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Full documentation</li>
+          </ul>
+          <a href="#quote" class="btn-primary text-sm w-full justify-center">Get Turnkey Quote <svg class="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+
+        <!-- Consignment -->
+        <div class="border-2 border-gray-100 rounded-2xl p-8 hover:border-blue-200 hover:shadow-lg transition-all group">
+          <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#2563eb] transition-colors">
+            <svg class="w-6 h-6 text-[#2563eb] group-hover:text-white transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+          </div>
+          <div class="text-xs font-bold text-[#2563eb] uppercase tracking-wider mb-1">Consignment</div>
+          <h3 class="text-xl font-bold text-[#0a1628] mb-2">You Supply, We Build</h3>
+          <p class="text-gray-500 text-sm mb-5">Already have components? Ship them to us. Lower per-board cost with the same quality.</p>
+          <ul class="space-y-2 mb-6 text-sm text-gray-600">
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Kit audit against BOM</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Lower per-board cost</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Same quality process</li>
+            <li class="flex items-center gap-2"><svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Flexible scheduling</li>
+          </ul>
+          <a href="#quote" class="text-sm font-semibold text-[#2563eb] hover:text-[#3b82f6] inline-flex items-center gap-1">Get Quote <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section class="px-6 py-20 md:py-28 lg:px-8 bg-[#0a1628]">
+    <div class="max-w-7xl mx-auto text-center">
+      <span class="text-sm font-semibold text-[#60a5fa] uppercase tracking-wider">Industries</span>
+      <h2 class="mt-2 text-3xl md:text-4xl font-bold text-white">Trusted Across Sectors</h2>
+      <p class="mt-3 text-gray-400 max-w-lg mx-auto">From rail systems to quantum computing, our boards power critical applications.</p>
+      <div class="mt-10 flex flex-wrap justify-center gap-3">
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Rail & Transportation</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Aerospace & Defence</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Medical Devices</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Industrial Automation</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">IoT & Connected Devices</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Quantum Computing</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Power Electronics</span>
+        <span class="px-5 py-2.5 bg-white/5 border border-white/10 text-gray-300 rounded-full text-sm font-medium hover:border-[#3b82f6] hover:text-white transition-colors">Imaging & Cameras</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 py-20 md:py-28 lg:px-8 bg-gray-50" id="quote">
+    <div class="max-w-7xl mx-auto">
+      <div class="bg-gradient-to-r from-[#0a1628] to-[#0f1f3d] rounded-2xl p-10 md:p-16 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">Ready to Start Your Next Build?</h2>
+        <p class="mt-3 text-gray-400 text-lg max-w-lg mx-auto">Upload your BOM and Gerber files. We'll have a detailed quote back to you within 24 hours.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="mailto:apatel@rspcbassembly.com" class="btn-white text-sm px-8 py-4">
+            <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+            Upload Files & Quote
+          </a>
+          <a href="#contact" class="btn-outline text-sm px-8 py-4">Talk to an Engineer</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-6 py-20 md:py-28 lg:px-8 bg-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 text-center">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-5 h-5 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="text-sm font-semibold text-[#0a1628]">Address</h3>
+          <p class="text-sm text-gray-500 mt-2">5580 Vanden Abeele<br>Saint-Laurent, QC H4S 1P9</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 text-center">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-5 h-5 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="text-sm font-semibold text-[#0a1628]">Phone</h3>
+          <a href="tel:+14388338477" class="text-sm text-gray-500 mt-2 hover:text-[#2563eb]">+1 (438) 833-8477</a>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 text-center">
+          <div class="w-10 h-10 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-4">
+            <svg class="w-5 h-5 text-[#2563eb]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 class="text-sm font-semibold text-[#0a1628]">Email</h3>
+          <a href="mailto:apatel@rspcbassembly.com" class="text-sm text-gray-500 mt-2 hover:text-[#2563eb]">apatel@rspcbassembly.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="bg-[#2563eb]">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="text-center md:text-left">
+          <p class="text-white font-semibold">Ready to start your next PCB project?</p>
+          <p class="text-blue-200 text-sm">Upload your files and get a quote within 24 hours.</p>
+        </div>
+        <a href="#quote" class="btn-white text-sm px-6 py-3">Get a Quote <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+    <div class="bg-[#060d1a] text-gray-400">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div>
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-9 h-9 bg-[#0f1f3d] rounded-lg flex items-center justify-center">
+                <svg class="w-5 h-5 text-[#3b82f6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/></svg>
+              </div>
+              <div><span class="text-lg font-bold text-white tracking-tight">R.S. ELECTRONIQUE INC.</span><span class="text-lg font-normal text-gray-500 ml-1">Assembly</span></div>
+            </div>
+            <p class="text-sm text-gray-500">Contract electronics manufacturing and SMT PCB assembly in Montreal, Canada.</p>
+            <div class="mt-4 flex items-center gap-3 text-xs text-gray-600"><span>Member of AQT</span><span class="w-1 h-1 bg-gray-700 rounded-full"></span><span>Member of SMTA</span></div>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-5">Company</h4>
+            <ul class="space-y-3 text-sm text-gray-500"><li><a href="#" class="hover:text-[#60a5fa] transition-colors">Home</a></li><li><a href="#about" class="hover:text-[#60a5fa] transition-colors">About Us</a></li><li><a href="#services" class="hover:text-[#60a5fa] transition-colors">Services</a></li><li><a href="#contact" class="hover:text-[#60a5fa] transition-colors">Contact</a></li><li><a href="#quote" class="hover:text-[#60a5fa] transition-colors">Get a Quote</a></li></ul>
+          </div>
+          <div>
+            <h4 class="text-white font-semibold text-sm uppercase tracking-wider mb-5">Contact</h4>
+            <p class="text-sm text-gray-500">5580 Vanden Abeele<br>Saint-Laurent, QC H4S 1P9<br>Canada</p>
+            <p class="text-sm text-gray-500 mt-3">+1 (438) 833-8477</p>
+            <p class="text-sm text-gray-500 mt-1">apatel@rspcbassembly.com</p>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-[#0f1f3d] text-center text-xs text-gray-600">&copy; 2026 R.S. Electronique Inc. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
