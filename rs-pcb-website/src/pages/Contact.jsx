@@ -1,18 +1,42 @@
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Loader2, AlertCircle } from 'lucide-react'
+
+const API_URL = import.meta.env.PROD
+  ? 'https://rspcbassembly.com/new/api/send-contact.php'
+  : '/api/send-contact.php'
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
     name: '', email: '', company: '', phone: '', subject: '', message: '',
   })
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Contact form submission:', form)
-    setSubmitted(true)
+    setError('')
+    setSending(true)
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      const result = await response.json()
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setError(result.error || 'Something went wrong. Please try again.')
+      }
+    } catch (err) {
+      console.error('Contact form error:', err)
+      setError('Failed to send. Please email us directly at apatel@rspcbassembly.com')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -87,6 +111,9 @@ export default function Contact() {
                   <CheckCircle className="w-12 h-12 text-pcb-600 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-sierra-900 mb-2">Message Sent</h3>
                   <p className="text-gray-600">We'll get back to you within one business day.</p>
+                  <p className="mt-2 text-gray-400 text-sm">
+                    A confirmation has been sent to <strong>{form.email}</strong>.
+                  </p>
                   <button
                     onClick={() => { setSubmitted(false); setForm({ name: '', email: '', company: '', phone: '', subject: '', message: '' }); }}
                     className="mt-6 text-pcb-600 font-semibold text-sm hover:text-pcb-500 transition-colors"
@@ -129,8 +156,31 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 mb-2">Message <span className="text-red-400">*</span></label>
                     <textarea name="message" required rows={5} value={form.message} onChange={handleChange} className="input-field resize-none" placeholder="Tell us about your project or question..." />
                   </div>
-                  <button type="submit" className="mt-6 btn-primary w-full md:w-auto">
-                    <Send className="w-4 h-4 mr-2" /> Send Message
+
+                  {error && (
+                    <div className="mt-5 flex items-start gap-3 p-4 bg-red-50 border border-red-200 rounded-xl">
+                      <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-sm font-medium text-red-800">{error}</p>
+                        <p className="text-xs text-red-600 mt-1">
+                          You can also email us directly at{' '}
+                          <a href="mailto:apatel@rspcbassembly.com" className="underline">apatel@rspcbassembly.com</a>
+                        </p>
+                      </div>
+                    </div>
+                  )}
+
+                  <button type="submit" disabled={sending} className="mt-6 btn-primary w-full md:w-auto disabled:opacity-60 disabled:cursor-not-allowed">
+                    {sending ? (
+                      <span className="flex items-center">
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        Sending...
+                      </span>
+                    ) : (
+                      <span className="flex items-center">
+                        <Send className="w-4 h-4 mr-2" /> Send Message
+                      </span>
+                    )}
                   </button>
                 </form>
               )}
